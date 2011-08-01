@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ChabaDataset" targetNamespace="http://tempuri.org/ChabaDataset.xsd" xmlns:mstns="http://tempuri.org/ChabaDataset.xsd" xmlns="http://tempuri.org/ChabaDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ChabaDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ChabaDataset" msprop:Generator_UserDSName="ChabaDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="zone_settings" msprop:Generator_TableClassName="zone_settingsDataTable" msprop:Generator_TableVarName="tablezone_settings" msprop:Generator_TablePropName="zone_settings" msprop:Generator_RowDeletingName="zone_settingsRowDeleting" msprop:Generator_UserTableName="zone_settings" msprop:Generator_RowChangingName="zone_settingsRowChanging" msprop:Generator_RowEvHandlerName="zone_settingsRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_settingsRowDeleted" msprop:Generator_RowEvArgName="zone_settingsRowChangeEvent" msprop:Generator_RowChangedName="zone_settingsRowChanged" msprop:Generator_RowClassName="zone_settingsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="zone_name" msprop:Generator_ColumnVarNameInTable="columnzone_name" msprop:Generator_ColumnPropNameInRow="zone_name" msprop:Generator_ColumnPropNameInTable="zone_nameColumn" msprop:Generator_UserColumnName="zone_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zone_displaytext" msprop:Generator_ColumnVarNameInTable="columnzone_displaytext" msprop:Generator_ColumnPropNameInRow="zone_displaytext" msprop:Generator_ColumnPropNameInTable="zone_displaytextColumn" msprop:Generator_UserColumnName="zone_displaytext" type="xs:string" minOccurs="0" />
+              <xs:element name="zone_status" msprop:Generator_ColumnVarNameInTable="columnzone_status" msprop:Generator_ColumnPropNameInRow="zone_status" msprop:Generator_ColumnPropNameInTable="zone_statusColumn" msprop:Generator_UserColumnName="zone_status" type="xs:int" minOccurs="0" />
+              <xs:element name="zone_tables" msprop:Generator_ColumnVarNameInTable="columnzone_tables" msprop:Generator_ColumnPropNameInRow="zone_tables" msprop:Generator_ColumnPropNameInTable="zone_tablesColumn" msprop:Generator_UserColumnName="zone_tables" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="zone_settingsKey1">
+      <xs:selector xpath=".//mstns:zone_settings" />
+      <xs:field xpath="mstns:zone_name" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,11 @@
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\bin\Release\WindowsApplication1.exe
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\bin\Release\WindowsApplication1.pdb
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\bin\Release\WindowsApplication1.xml
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\WindowsApplication1.Form1.resources
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\WindowsApplication1.Resources.resources
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\GenerateResource-ResGen.read.1.tlog
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\GenerateResource-ResGen.write.1.tlog
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\WindowsApplication1.exe
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\WindowsApplication1.xml
+C:\Users\Piyanatn\AppData\Local\Temporary Projects\WindowsApplication1\obj\x86\Release\WindowsApplication1.pdb

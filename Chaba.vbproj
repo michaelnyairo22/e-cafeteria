@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1173EC3-34E4-411B-82FD-FF533641B7AB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Chaba.My.MyApplication</StartupObject>
+    <RootNamespace>Chaba</RootNamespace>
+    <AssemblyName>Chaba</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Chaba.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Chaba.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cash_register.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Crypto">
+      <HintPath>..\..\..\..\..\..\DotNet Project Wichian\Crypto\Crypto\bin\Release\Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EurekaLog, Version=6.5.9.0, Culture=neutral, PublicKeyToken=c07f3a4a477a2e90, processorArchitecture=MSIL" />
+    <Reference Include="FastReport, Version=1.6.17.0, Culture=neutral, PublicKeyToken=9e2f11070db1b41c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Visual Studio 2008\Projects\InternalDocumentsManagement\InternalDocumentsManagement\Componants\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=1.6.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
+    <Reference Include="FastReport.Editor, Version=1.6.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\ClsEmployee.vb" />
+    <Compile Include="Class\ClsLPT.vb" />
+    <Compile Include="Class\ClsMenu.vb" />
+    <Compile Include="Class\ClsTable.vb" />
+    <Compile Include="Dataset\ChabaDataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChabaDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\ChabaDataset.vb">
+      <DependentUpon>ChabaDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ClsZone.vb" />
+    <Compile Include="Class\ClsSQLhelper.vb" />
+    <Compile Include="Dialog1.Designer.vb">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogPreparing.Designer.vb">
+      <DependentUpon>DialogPreparing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogPreparing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgCurrentSQL.Designer.vb">
+      <DependentUpon>DlgCurrentSQL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DlgCurrentSQL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmbooking.Designer.vb">
+      <DependentUpon>frmbooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmbooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmcapture.Designer.vb">
+      <DependentUpon>Frmcapture.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frmcapture.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCash.Designer.vb">
+      <DependentUpon>frmCash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatabaseConnError.Designer.vb">
+      <DependentUpon>frmDatabaseConnError.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDatabaseConnError.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDBSetting.designer.vb">
+      <DependentUpon>frmDBSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDBSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDebug.Designer.vb">
+      <DependentUpon>frmDebug.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDebug.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditEmp.Designer.vb">
+      <DependentUpon>frmEditEmp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditEmp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMenu.Designer.vb">
+      <DependentUpon>frmEditMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFullSize.Designer.vb">
+      <DependentUpon>FrmFullSize.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFullSize.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMoveTable.Designer.vb">
+      <DependentUpon>frmMoveTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMoveTable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewEmp.Designer.vb">
+      <DependentUpon>frmNewEmp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewEmp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeeSettings.Designer.vb">
+      <DependentUpon>frmEmployeeSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeeSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenusSetting.Designer.vb">
+      <DependentUpon>frmMenusSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenusSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewMenu.Designer.vb">
+      <DependentUpon>frmNewMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewOrder.Designer.vb">
+      <DependentUpon>frmNewOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderlist.Designer.vb">
+      <DependentUpon>frmOrderlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrderlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintReceive.Designer.vb">
+      <DependentUpon>frmPrintReceive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintReceive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReceipt.Designer.vb">
+      <DependentUpon>frmReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchMenu.Designer.vb">
+      <DependentUpon>frmSearchMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTables.Designer.vb">
+      <DependentUpon>frmTables.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTables.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserSettings.Designer.vb">
+      <DependentUpon>frmUserSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmZoneSettings.Designer.vb">
+      <DependentUpon>frmZoneSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmZoneSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmZones.Designer.vb">
+      <DependentUpon>frmZones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmZones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class\Pn_Framework.vb" />
+    <Compile Include="Program.vb" />
+    <Compile Include="frmTablesSettings.Designer.vb">
+      <DependentUpon>frmTablesSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTablesSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraForm1.Designer.vb">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogPreparing.resx">
+      <DependentUpon>DialogPreparing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgCurrentSQL.resx">
+      <DependentUpon>DlgCurrentSQL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmbooking.resx">
+      <DependentUpon>frmbooking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmcapture.resx">
+      <DependentUpon>Frmcapture.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCash.resx">
+      <DependentUpon>frmCash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDatabaseConnError.resx">
+      <DependentUpon>frmDatabaseConnError.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDBSetting.resx">
+      <DependentUpon>frmDBSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDebug.resx">
+      <DependentUpon>frmDebug.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditEmp.resx">
+      <DependentUpon>frmEditEmp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMenu.resx">
+      <DependentUpon>frmEditMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFullSize.resx">
+      <DependentUpon>FrmFullSize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMoveTable.resx">
+      <DependentUpon>frmMoveTable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewEmp.resx">
+      <DependentUpon>frmNewEmp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeeSettings.resx">
+      <DependentUpon>frmEmployeeSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenusSetting.resx">
+      <DependentUpon>frmMenusSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewMenu.resx">
+      <DependentUpon>frmNewMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewOrder.resx">
+      <DependentUpon>frmNewOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderlist.resx">
+      <DependentUpon>frmOrderlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintReceive.resx">
+      <DependentUpon>frmPrintReceive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReceipt.resx">
+      <DependentUpon>frmReceipt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchMenu.resx">
+      <DependentUpon>frmSearchMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTables.resx">
+      <DependentUpon>frmTables.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTablesSettings.resx">
+      <DependentUpon>frmTablesSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmZones.resx">
+      <DependentUpon>frmZones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmZoneSettings.resx">
+      <DependentUpon>frmZoneSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Chaba.eof" />
+    <None Include="Dataset\ChabaDataset.xsc">
+      <DependentUpon>ChabaDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\ChabaDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChabaDataset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Dataset\ChabaDataset.xss">
+      <DependentUpon>ChabaDataset.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smiley_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_marked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cashier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cashier.ico" />
+    <None Include="Resources\preferences.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\zoom_out.png" />
+    <None Include="Resources\zoom_in.png" />
+    <None Include="Resources\Disk.jpg" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\delete21.png" />
+    <None Include="Resources\camera2.png" />
+    <None Include="Resources\add2.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\contract.png" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\disk_blue.png" />
+    <None Include="Resources\bonus-cash-game.jpg" />
+    <None Include="Resources\address_book2.png" />
+    <None Include="Resources\element_next.png" />
+    <None Include="Resources\alarmclock1.png" />
+    <None Include="Resources\alarmclock2.png" />
+    <None Include="Resources\alarmclock_stop.png" />
+    <Content Include="cash_register.ico" />
+    <Content Include="Resources\NoPix.jpg" />
+    <None Include="Resources\NoPix1.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
