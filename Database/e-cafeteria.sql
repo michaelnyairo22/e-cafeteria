@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: e-cafeteria
 Target Host: localhost
 Target Database: e-cafeteria
-Date: 01/07/2011 13:28:00
+Date: 11/8/2011 10:15:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -13,7 +13,9 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `app_settings`;
 CREATE TABLE `app_settings` (
-  `cafeteria_name` varchar(255) NOT NULL
+  `cafeteria_name` varchar(100) NOT NULL,
+  `cafeteria_tel` varchar(50) DEFAULT NULL,
+  `cafeteria_fax` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=tis620;
 
 -- ----------------------------
@@ -74,7 +76,7 @@ CREATE TABLE `food_order` (
   `order_billno` varchar(255) DEFAULT NULL,
   `billing_datetime` datetime DEFAULT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Table structure for food_order_detail
@@ -93,7 +95,7 @@ CREATE TABLE `food_order_detail` (
   `order_detail_waiter` int(11) DEFAULT NULL,
   `order_datetime` datetime DEFAULT NULL,
   PRIMARY KEY (`order_food_detail_id`,`order_food_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Table structure for food_order_serial
@@ -246,18 +248,24 @@ CREATE TABLE `zone_status` (
 -- ----------------------------
 -- Records 
 -- ----------------------------
-INSERT INTO `app_settings` VALUES ('ไก่ย่าง ชบา');
+INSERT INTO `app_settings` VALUES ('สำตำ ชบา', '074225315', '07500000');
 INSERT INTO `emp_status` VALUES ('1', 'ทำงานอยู่');
 INSERT INTO `emp_status` VALUES ('2', 'ออกแล้ว');
 INSERT INTO `employee` VALUES ('0', 'คุณ', 'Default', 'System', '-', '1', '1', null, '2011-05-29 00:00:00', '2011-05-29 00:00:00', 'System');
 INSERT INTO `employee` VALUES ('7', 'คุณ', 'ปิยะณัฐ', 'นิ่มขุนทด', 'ฟาร์ม', '1', '1', '', '2011-05-29 00:00:00', '2011-05-29 00:00:00', 'ไอที');
 INSERT INTO `employee` VALUES ('8', 'คุณ', 'ณัฐพล', 'เสมา', 'ต้อง', '1', '1', '', '2011-05-29 00:00:00', '2011-05-29 00:00:00', 'ไอที');
 INSERT INTO `food_order` VALUES ('21', '2011-06-29 22:04:40', 'A', '1', null, '20', '0', '2', '2011-06-29-1-8', '2011-06-29 22:06:43');
-INSERT INTO `food_order` VALUES ('29', '2011-06-29 23:04:19', 'A', '1', null, '70', '0', '1', '', null);
+INSERT INTO `food_order` VALUES ('29', '2011-06-29 23:04:19', 'A', '1', null, '70', '0', '2', '2011-07-26/1', '2011-07-26 21:52:26');
 INSERT INTO `food_order` VALUES ('26', '2011-06-29 22:44:02', 'A', '1', null, '70', '0', '2', '2011-06-29-16', '2011-06-29 22:55:43');
 INSERT INTO `food_order` VALUES ('27', '2011-06-29 22:52:20', 'B', '12', null, '70', '0', '1', '2011-06-29-14', null);
 INSERT INTO `food_order` VALUES ('28', '2011-06-29 22:53:22', 'C', '1', null, '70', '0', '2', '2011-06-29-15', '2011-06-29 22:53:37');
-INSERT INTO `food_order` VALUES ('30', '2011-06-30 22:44:16', 'A', '2', null, '70', '0', '1', '', null);
+INSERT INTO `food_order` VALUES ('30', '2011-06-30 22:44:16', 'A', '2', null, '70', '0', '2', '2011-07-26/2', '2011-07-26 21:59:16');
+INSERT INTO `food_order` VALUES ('31', '2011-07-26 22:01:43', 'A', '1', null, '55', '0', '2', '2011-07-30/1', '2011-07-30 21:03:04');
+INSERT INTO `food_order` VALUES ('32', '2011-07-30 23:43:59', 'A', '1', null, '20', '0', '2', '2011-07-31/1', '2011-07-31 14:21:43');
+INSERT INTO `food_order` VALUES ('33', '2011-07-31 14:22:35', 'A', '1', null, '20', '0', '2', '2011-07-31/2', '2011-07-31 14:22:53');
+INSERT INTO `food_order` VALUES ('34', '2011-07-31 14:32:20', 'A', '1', null, '20', '0', '2', '2011-07-31/3', '2011-07-31 14:32:32');
+INSERT INTO `food_order` VALUES ('35', '2011-07-31 14:40:41', 'A', '1', null, '20', '0', '2', '2011-07-31/4', '2011-07-31 14:40:56');
+INSERT INTO `food_order` VALUES ('36', '2011-07-31 14:51:30', 'A', '1', null, '20', '0', '2', '2011-07-31/5', '2011-07-31 14:51:41');
 INSERT INTO `food_order_detail` VALUES ('71', '27', '80', '20', '1', '0', '20', null, '1', '0', '2011-06-29 22:52:20');
 INSERT INTO `food_order_detail` VALUES ('72', '27', '81', '10', '1', '0', '10', null, '1', '0', '2011-06-29 22:52:20');
 INSERT INTO `food_order_detail` VALUES ('73', '27', '82', '10', '1', '0', '10', null, '1', '0', '2011-06-29 22:52:20');
@@ -278,21 +286,37 @@ INSERT INTO `food_order_detail` VALUES ('76', '28', '79', '10', '1', '0', '10', 
 INSERT INTO `food_order_detail` VALUES ('77', '28', '80', '20', '1', '0', '20', null, '1', '0', '2011-06-29 22:53:22');
 INSERT INTO `food_order_detail` VALUES ('78', '28', '81', '10', '1', '0', '10', null, '1', '0', '2011-06-29 22:53:22');
 INSERT INTO `food_order_detail` VALUES ('79', '28', '82', '10', '1', '0', '10', null, '1', '0', '2011-06-29 22:53:22');
-INSERT INTO `food_order_detail` VALUES ('80', '29', '77', '10', '1', '0', '10', null, '1', '0', '2011-06-29 23:04:19');
-INSERT INTO `food_order_detail` VALUES ('81', '29', '78', '10', '1', '0', '10', null, '1', '0', '2011-06-29 23:04:19');
-INSERT INTO `food_order_detail` VALUES ('82', '29', '79', '10', '1', '0', '10', null, '1', '0', '2011-06-29 23:04:19');
-INSERT INTO `food_order_detail` VALUES ('83', '29', '80', '20', '1', '0', '20', null, '1', '0', '2011-06-29 23:04:19');
-INSERT INTO `food_order_detail` VALUES ('84', '29', '81', '10', '1', '0', '10', null, '1', '0', '2011-06-29 23:04:19');
-INSERT INTO `food_order_detail` VALUES ('85', '29', '82', '10', '1', '0', '10', null, '1', '0', '2011-06-29 23:04:19');
-INSERT INTO `food_order_detail` VALUES ('86', '30', '77', '10', '1', '0', '10', null, '1', '0', '2011-06-30 22:44:16');
-INSERT INTO `food_order_detail` VALUES ('87', '30', '78', '10', '1', '0', '10', null, '1', '0', '2011-06-30 22:44:16');
-INSERT INTO `food_order_detail` VALUES ('88', '30', '79', '10', '1', '0', '10', null, '1', '0', '2011-06-30 22:44:16');
-INSERT INTO `food_order_detail` VALUES ('89', '30', '80', '20', '1', '0', '20', null, '1', '0', '2011-06-30 22:44:16');
-INSERT INTO `food_order_detail` VALUES ('90', '30', '81', '10', '1', '0', '10', null, '1', '0', '2011-06-30 22:44:16');
-INSERT INTO `food_order_detail` VALUES ('91', '30', '82', '10', '1', '0', '10', null, '1', '0', '2011-06-30 22:44:16');
-INSERT INTO `food_order_serial` VALUES ('2011-06-21', '16');
-INSERT INTO `food_order_serial` VALUES ('2011-06-28', '16');
-INSERT INTO `food_order_serial` VALUES ('2011-06-29', '16');
+INSERT INTO `food_order_detail` VALUES ('80', '29', '77', '10', '1', '0', '10', null, '2', '0', '2011-07-26 21:23:07');
+INSERT INTO `food_order_detail` VALUES ('81', '29', '78', '10', '1', '0', '10', null, '2', '0', '2011-07-26 20:52:10');
+INSERT INTO `food_order_detail` VALUES ('82', '29', '79', '10', '1', '0', '10', null, '2', '0', '2011-07-26 21:51:57');
+INSERT INTO `food_order_detail` VALUES ('83', '29', '80', '20', '1', '0', '20', null, '2', '0', '2011-07-26 21:52:04');
+INSERT INTO `food_order_detail` VALUES ('84', '29', '81', '10', '1', '0', '10', null, '2', '0', '2011-07-26 21:52:11');
+INSERT INTO `food_order_detail` VALUES ('85', '29', '82', '10', '1', '0', '10', null, '2', '0', '2011-07-26 20:52:24');
+INSERT INTO `food_order_detail` VALUES ('86', '30', '77', '10', '1', '0', '10', null, '2', '0', '2011-06-30 22:44:16');
+INSERT INTO `food_order_detail` VALUES ('87', '30', '78', '10', '1', '0', '10', null, '2', '0', '2011-06-30 22:44:16');
+INSERT INTO `food_order_detail` VALUES ('88', '30', '79', '10', '1', '0', '10', null, '2', '0', '2011-06-30 22:44:16');
+INSERT INTO `food_order_detail` VALUES ('89', '30', '80', '20', '1', '0', '20', null, '2', '0', '2011-06-30 22:44:16');
+INSERT INTO `food_order_detail` VALUES ('90', '30', '81', '10', '1', '0', '10', null, '2', '0', '2011-06-30 22:44:16');
+INSERT INTO `food_order_detail` VALUES ('91', '30', '82', '10', '1', '0', '10', null, '2', '0', '2011-06-30 22:44:16');
+INSERT INTO `food_order_detail` VALUES ('92', '31', '77', '10', '2', '0', '20', null, '2', '0', '2011-07-26 22:04:22');
+INSERT INTO `food_order_detail` VALUES ('93', '31', '78', '10', '1', '0', '10', null, '2', '0', '2011-07-26 22:01:43');
+INSERT INTO `food_order_detail` VALUES ('94', '31', '0105', '35', '3', '0', '105', null, '2', '0', '2011-07-26 22:02:08');
+INSERT INTO `food_order_detail` VALUES ('95', '32', '77', '10', '1', '0', '10', null, '2', '0', '2011-07-30 23:43:59');
+INSERT INTO `food_order_detail` VALUES ('96', '32', '78', '10', '1', '0', '10', null, '2', '0', '2011-07-30 23:43:59');
+INSERT INTO `food_order_detail` VALUES ('97', '33', '77', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:22:35');
+INSERT INTO `food_order_detail` VALUES ('98', '33', '78', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:22:35');
+INSERT INTO `food_order_detail` VALUES ('99', '34', '77', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:32:20');
+INSERT INTO `food_order_detail` VALUES ('100', '34', '78', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:32:20');
+INSERT INTO `food_order_detail` VALUES ('101', '35', '77', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:40:41');
+INSERT INTO `food_order_detail` VALUES ('102', '35', '78', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:40:41');
+INSERT INTO `food_order_detail` VALUES ('103', '36', '77', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:51:30');
+INSERT INTO `food_order_detail` VALUES ('104', '36', '78', '10', '1', '0', '10', null, '2', '0', '2011-07-31 14:51:30');
+INSERT INTO `food_order_serial` VALUES ('2011-06-21', '5');
+INSERT INTO `food_order_serial` VALUES ('2011-06-28', '5');
+INSERT INTO `food_order_serial` VALUES ('2011-06-29', '5');
+INSERT INTO `food_order_serial` VALUES ('2011-07-26', '5');
+INSERT INTO `food_order_serial` VALUES ('2011-07-30', '5');
+INSERT INTO `food_order_serial` VALUES ('2011-07-31', '5');
 INSERT INTO `food_order_status` VALUES ('1', 'รออาหาร');
 INSERT INTO `food_order_status` VALUES ('2', 'ได้ครบแล้ว');
 INSERT INTO `menu` VALUES ('0100', 'ตำไทย', '35', '0', '0', '11', 'N', '', 'N');
@@ -522,12 +546,13 @@ INSERT INTO `menu` VALUES ('73', 'น้ำโยเกิร์ตปั่น'
 INSERT INTO `menu` VALUES ('74', 'น้ำส้มปั่น', '30', '0', '0', '10', 'N', null, 'N');
 INSERT INTO `menu` VALUES ('75', 'น้ำส้มคั้น', '20', '0', '0', '10', 'N', null, 'N');
 INSERT INTO `menu` VALUES ('76', 'ไอติม', '10', '0', '0', '10', 'N', null, 'N');
-INSERT INTO `menu` VALUES ('77', 'น้ำแข็ง', '10', '0', '0', '13', 'N', null, 'Y');
-INSERT INTO `menu` VALUES ('78', 'น้ำ', '10', '0', '0', '13', 'N', null, 'Y');
-INSERT INTO `menu` VALUES ('79', 'ข้าวเหนียว', '10', '0', '0', '13', 'N', '', 'Y');
-INSERT INTO `menu` VALUES ('80', 'ข้าวเหนียวทอด', '20', '0', '0', '13', 'N', null, 'Y');
-INSERT INTO `menu` VALUES ('81', 'ขนมจีน', '10', '0', '0', '13', 'N', null, 'Y');
-INSERT INTO `menu` VALUES ('82', 'ข้าวสวย', '10', '0', '0', '13', 'N', null, 'Y');
+INSERT INTO `menu` VALUES ('77', 'น้ำแข็ง', '10', '0', '0', '13', 'N', '', 'Y');
+INSERT INTO `menu` VALUES ('78', 'น้ำ', '10', '0', '0', '13', 'N', '', 'Y');
+INSERT INTO `menu` VALUES ('79', 'ข้าวเหนียว', '10', '0', '0', '13', 'N', '', 'N');
+INSERT INTO `menu` VALUES ('80', 'ข้าวเหนียวทอด', '20', '0', '0', '13', 'N', null, 'N');
+INSERT INTO `menu` VALUES ('81', 'ขนมจีน', '10', '0', '0', '13', 'N', '', 'N');
+INSERT INTO `menu` VALUES ('82', 'ข้าวสวย', '10', '0', '0', '13', 'N', '', 'N');
+INSERT INTO `menu` VALUES ('00000', 'dfsdfsdf', '10', '0', '0', '1', 'N', '', 'N');
 INSERT INTO `menugroup` VALUES ('1', 'ปลา');
 INSERT INTO `menugroup` VALUES ('2', 'อาหารน้ำ');
 INSERT INTO `menugroup` VALUES ('3', 'ทอด');
@@ -752,8 +777,8 @@ INSERT INTO `sex` VALUES ('2', 'หญิง');
 INSERT INTO `table_info` VALUES ('A', '01', '1', 'ลูกค้าทั่วไป', '1', '0', '2');
 INSERT INTO `table_info` VALUES ('A', '02', null, 'ลูกค้าทั่วไป', '0', '0', '1');
 INSERT INTO `table_info` VALUES ('A', '03', null, 'ลูกค้าทั่วไป', '0', '0', '1');
-INSERT INTO `table_settings` VALUES ('A', '1', 'โต๊ะที่ 01', '3');
-INSERT INTO `table_settings` VALUES ('A', '2', 'โต๊ะที่ 2', '3');
+INSERT INTO `table_settings` VALUES ('A', '1', 'โต๊ะที่ 01', '1');
+INSERT INTO `table_settings` VALUES ('A', '2', 'โต๊ะที่ 2', '1');
 INSERT INTO `table_settings` VALUES ('A', '3', 'โต๊ะที่ 3', '1');
 INSERT INTO `table_settings` VALUES ('A', '4', 'โต๊ะที่ 4', '1');
 INSERT INTO `table_settings` VALUES ('A', '5', 'โต๊ะที่ 5', '1');
