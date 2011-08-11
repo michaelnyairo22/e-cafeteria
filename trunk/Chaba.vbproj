@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Crypto">
-      <HintPath>..\..\..\..\..\..\DotNet Project Wichian\Crypto\Crypto\bin\Release\Crypto.dll</HintPath>
+      <HintPath>Dll\Crypto.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -67,11 +67,21 @@
     <Reference Include="EurekaLog, Version=6.5.9.0, Culture=neutral, PublicKeyToken=c07f3a4a477a2e90, processorArchitecture=MSIL" />
     <Reference Include="FastReport, Version=1.6.17.0, Culture=neutral, PublicKeyToken=9e2f11070db1b41c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Visual Studio 2008\Projects\InternalDocumentsManagement\InternalDocumentsManagement\Componants\FastReport.dll</HintPath>
+      <HintPath>..\..\F_R_1_6_17\FastReport.dll</HintPath>
     </Reference>
-    <Reference Include="FastReport.Bars, Version=1.6.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
-    <Reference Include="FastReport.Editor, Version=1.6.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="FastReport.Install">
+      <HintPath>..\..\F_R_1_6_17\FastReport.Install.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.VSDesign">
+      <HintPath>..\..\F_R_1_6_17\FastReport.VSDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Web">
+      <HintPath>..\..\F_R_1_6_17\FastReport.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\MySQL\MySQL Connector Net 6.4.3\Assemblies\v4.0\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
