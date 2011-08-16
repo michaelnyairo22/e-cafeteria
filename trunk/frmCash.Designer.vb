@@ -33,6 +33,7 @@ Partial Class frmCash
         Me.BtnClose = New DevExpress.XtraEditors.SimpleButton()
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         CType(Me.TxtPrice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtReceive.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtTorn.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -214,4 +215,5 @@ Partial Class frmCash
     Friend WithEvents BtnCash As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnClose As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SerialPort1 As System.IO.Ports.SerialPort
+    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
 End Class
