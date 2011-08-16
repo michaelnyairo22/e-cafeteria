@@ -9,45 +9,45 @@ Public Class frmOrderlist
 
         Me.GridColumn1.FieldName = "order_id"
         Me.GridColumn1.Caption = "รหัส"
-        Me.GridColumn1.OptionsColumn.ReadOnly = True
+        'Me.GridColumn1.OptionsColumn.ReadOnly = True
 
         Me.GridColumn2.FieldName = "order_billno"
         Me.GridColumn2.Caption = "เลขที่ใบเสร็จ"
-        Me.GridColumn2.OptionsColumn.ReadOnly = True
+        'Me.GridColumn2.OptionsColumn.ReadOnly = True
 
         Me.GridColumn3.FieldName = "order_date"
         Me.GridColumn3.Caption = "วันและเวลา"
-        Me.GridColumn3.OptionsColumn.ReadOnly = True
+        ' Me.GridColumn3.OptionsColumn.ReadOnly = True
         Me.GridColumn3.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss"
 
         Me.GridColumn4.FieldName = "zone_id"
         Me.GridColumn4.Caption = "โซน"
-        Me.GridColumn4.OptionsColumn.ReadOnly = True
+        ' Me.GridColumn4.OptionsColumn.ReadOnly = True
 
         Me.GridColumn5.FieldName = "table_id"
         Me.GridColumn5.Caption = "โต๊ะ"
-        Me.GridColumn5.OptionsColumn.ReadOnly = True
+        ' Me.GridColumn5.OptionsColumn.ReadOnly = True
 
         Me.GridColumn6.FieldName = "price"
         Me.GridColumn6.Caption = "ราคา"
-        Me.GridColumn6.OptionsColumn.ReadOnly = True
+        ' Me.GridColumn6.OptionsColumn.ReadOnly = True
 
         Me.GridColumn7.FieldName = "discount"
         Me.GridColumn7.Caption = "ส่วนลด"
-        Me.GridColumn7.OptionsColumn.ReadOnly = True
+        ' Me.GridColumn7.OptionsColumn.ReadOnly = True
 
         Me.GridColumn8.FieldName = "order_status_name"
         Me.GridColumn8.Caption = "สถานะ"
-        Me.GridColumn8.OptionsColumn.ReadOnly = True
+        '  Me.GridColumn8.OptionsColumn.ReadOnly = True
 
         Me.GridColumn9.FieldName = "billing_datetime"
         Me.GridColumn9.Caption = "วันและเวลาที่เช็คบิล"
-        Me.GridColumn9.OptionsColumn.ReadOnly = True
+        ' Me.GridColumn9.OptionsColumn.ReadOnly = True
         Me.GridColumn9.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss"
 
         Me.GridColumn10.FieldName = "remark"
         Me.GridColumn10.Caption = "หมายเหตุ"
-        Me.GridColumn10.OptionsColumn.ReadOnly = True
+        ' Me.GridColumn10.OptionsColumn.ReadOnly = True
 
         Try
             Strsql = "select food_order.*,order_status.order_status_name from food_order left join order_status on food_order.order_status = order_status.order_status_id where date(order_date) = '" & Pn_Framework.MysqlDateTimeFormat(DTPOrderDate.DateTime, False) & "'"
@@ -306,13 +306,15 @@ Public Class frmOrderlist
         End If
     End Sub
 
+
+
+    Private Sub GridControl1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GridControl1.Click
+
+    End Sub
+
     Private Sub GridView1_CustomRowCellEditForEditing(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs) Handles GridView1.CustomRowCellEditForEditing
         Dim gv As GridView
         gv = sender
         Primary_Key = gv.GetRowCellValue(e.RowHandle, gv.Columns("order_id"))
-    End Sub
-
-    Private Sub GridControl1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GridControl1.Click
-
     End Sub
 End Class

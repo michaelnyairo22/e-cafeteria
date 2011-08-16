@@ -1,4 +1,7 @@
 ﻿Imports System.IO
+Imports System.Drawing
+Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
+
 
 Public Class frmCash
     Dim Strsql As String
@@ -20,8 +23,9 @@ Public Class frmCash
             Dim DT_AppSetting As New DataTable
             DT_AppSetting = _mysql.GetMYSQLDataTable(Strsql, "app_setting")
             objWriter.WriteLine(DT_AppSetting.Rows(0).Item("cafeteria_name").ToString)
+            'objWriter.WriteLine("Somtum Chaba")
             objWriter.WriteLine("Tel. " & DT_AppSetting.Rows(0).Item("cafeteria_tel").ToString & "  Fax. " & DT_AppSetting.Rows(0).Item("cafeteria_fax").ToString)
-            objWriter.WriteLine("RECIEPT")
+            objWriter.WriteLine(vbTab & vbTab & "RECIEPT")
             objWriter.WriteLine("DATE : " & Now())
             objWriter.WriteLine("RECIEPT NO : " & Order_billno)
 
@@ -30,27 +34,80 @@ Public Class frmCash
             Strsql = "SELECT * FROM food_order left Join food_order_detail ON  food_order.order_id = food_order_detail.order_food_id  left Join menu ON food_order_detail.order_detail_menu_id =  menu.menu_id  where order_id = " & Order_Id
             Dim DT_FDetail As New DataTable
             DT_FDetail = _mysql.GetMYSQLDataTable(Strsql, "food_order_detail")
-            objWriter.WriteLine("โต๊ะที่ " & DT_FDetail.Rows(0).Item("zone_id").ToString & (DT_FDetail.Rows(i).Item("table_id").ToString))
-            objWriter.WriteLine("-----------------------------")
+            objWriter.WriteLine("Table " & DT_FDetail.Rows(0).Item("zone_id").ToString & (DT_FDetail.Rows(i).Item("table_id").ToString))
+
 
             For i = 0 To DT_FDetail.Rows.Count - 1
                 Dim StrMenu As String = DT_FDetail.Rows(i).Item("menu_name").ToString
                 For j = 1 To (30 - Len(DT_FDetail.Rows(i).Item("menu_name").ToString))
                     StrMenu = StrMenu & " "
                 Next
-                StrMenu = StrMenu & DT_FDetail.Rows(0).Item("order_detail_qty").ToString & "     " & DT_FDetail.Rows(0).Item("menu_price").ToString()
+                StrMenu = StrMenu & DT_FDetail.Rows(0).Item("order_detail_qty").ToString & vbTab & vbTab & DT_FDetail.Rows(0).Item("menu_price").ToString()
 
                 objWriter.WriteLine(StrMenu)
             Next
-            objWriter.WriteLine("-----------------------------")
-            objWriter.WriteLine("CASH         " & Me.TxtReceive.Text)
-            objWriter.WriteLine("CHANGE       " & Me.TxtTorn.Text)
+            objWriter.WriteLine("Total" & vbTab & vbTab & Me.TxtPrice.Text)
+            objWriter.WriteLine("CASH" & vbTab & vbTab & Me.TxtReceive.Text)
+            objWriter.WriteLine("***CHANGE" & vbTab & Me.TxtTorn.Text)
             objWriter.Close()
             '     Thread.Sleep(1000)
 
             ' Shell("cmd /b COPY 'C:\Temp\test.txt' LPT1", AppWinStyle.Hide)
 
             File.Copy("C:\Temp\cash.txt", "LPT1")
+            PrintDocument1.DocumentName = "C:\Temp\cash.txt"
+            PrintDocument1.Print()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Sub Prining_Receipt()
+        Try
+
+            Dim Printer As New Printer
+            Dim aryText(4) As String
+            Dim StrReceipt As String
+
+
+
+            Strsql = "Select * from app_settings"
+            Dim DT_AppSetting As New DataTable
+            DT_AppSetting = _mysql.GetMYSQLDataTable(Strsql, "app_setting")
+            StrReceipt = "ร้าน  " & DT_AppSetting.Rows(0).Item("cafeteria_name").ToString & vbCrLf
+            StrReceipt = StrReceipt & "Tel. " & DT_AppSetting.Rows(0).Item("cafeteria_tel").ToString & "  Fax. " & DT_AppSetting.Rows(0).Item("cafeteria_fax").ToString & vbCrLf
+            StrReceipt = StrReceipt & "RECIEPT DATE : " & Now().Date & " / " & Now.Month & " / " & Now.Year & Now.Hour & ":" & Now.Minute & ":" & Now.Second & vbCrLf
+            StrReceipt = StrReceipt & "RECIEPT NO : " & Order_billno & vbCrLf
+
+
+
+            Strsql = "SELECT * FROM food_order left Join food_order_detail ON  food_order.order_id = food_order_detail.order_food_id  left Join menu ON food_order_detail.order_detail_menu_id =  menu.menu_id  where order_id = " & Order_Id
+            Dim DT_FDetail As New DataTable
+            DT_FDetail = _mysql.GetMYSQLDataTable(Strsql, "food_order_detail")
+
+            StrReceipt = StrReceipt & "Table " & DT_FDetail.Rows(0).Item("zone_id").ToString & (DT_FDetail.Rows(0).Item("table_id").ToString) & vbCrLf
+            Dim DR As DataRow
+            For Each DR In DT_FDetail.Rows
+
+                Dim StrMenu As String = DR.Item("order_detail_qty").ToString & " X " & DR.Item("menu_price").ToString() & "     " & DR.Item("menu_name").ToString
+                
+                StrReceipt = StrReceipt & StrMenu & vbCrLf
+
+            Next
+
+            StrReceipt = StrReceipt & "ราคารวม" & "       " & Me.TxtPrice.Text & " บาท" & vbCrLf
+            StrReceipt = StrReceipt & "ชำระเงิน" & "       " & Me.TxtReceive.Text & " บาท" & vbCrLf
+            StrReceipt = StrReceipt & "เงินทอน" & "       " & Me.TxtTorn.Text & " บาท" & vbCrLf
+
+            For Each prnprinter In Printers
+                Printer = Printer
+                Exit For
+            Next
+
+            Printer.FontSize = 14
+            Printer.FontName = "AngsanaUPC"
+            Printer.Print(StrReceipt)
+            Printer.EndDoc()
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -117,7 +174,7 @@ Public Class frmCash
                 Strsql = "Update table_settings set table_status = 1 where table_zone = '" & My.Settings.CurrentZone & "' and table_name = '" & My.Settings.CurrentTable & "'"
                 _mysql.MySQLExecute(Strsql)
 
-                MsgBox("บันทึกขัอมูลเรียบร้อยแล้ว", MsgBoxStyle.Information, "ผลการบันทึกข้อมูล")
+                'MsgBox("บันทึกขัอมูลเรียบร้อยแล้ว", MsgBoxStyle.Information, "ผลการบันทึกข้อมูล")
                 Me.Dispose()
 
 
@@ -179,7 +236,7 @@ Public Class frmCash
 
                 Me.Order_billno = Pn_Framework.MysqlDateTimeFormat(Now, False) & "/" & Order_billno
 
-                Print_Receipt()
+                Prining_Receipt()
 
                 frmNewOrder.Dispose()
 
@@ -206,4 +263,6 @@ Public Class frmCash
     Private Sub BtnPrintReceipt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
+
+
 End Class
