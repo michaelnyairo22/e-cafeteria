@@ -101,6 +101,12 @@ Public Class ClsEmployee
     End Function
     Function Delete_Employee(ByVal Emp_id As Integer)
         Try
+            Strsql = "select readonly from employee where emp_id = " & Emp_id
+            If _mysql.MySQLExecuteScalar(Strsql) = 1 Then
+                MsgBox("ไม่สามารถลบรายการที่เป็นของระบบได้", MsgBoxStyle.Exclamation, "ขออภัยไม่สามารถทำรายการได้")
+                Exit Function
+            End If
+
             Strsql = "Delete from employee where emp_id = " & Emp_id
             Select Case _mysql.MySQLExecute(Strsql)
                 Case 0

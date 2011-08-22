@@ -50,10 +50,21 @@ Public Class frmEmployeeSettings
 
 
     Private Sub BtnEdit_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEdit.ItemClick
-        frmEditEmp.primary_key = Primary_Key
-        If frmEditEmp.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            Load_Data()
-        End If
+        Try
+            Strsql = "select readonly from employee where emp_id = " & Primary_Key
+            If _mysql.MySQLExecuteScalar(Strsql) = 1 Then
+                MsgBox("ไม่สามารถลบรายการที่เป็นของระบบได้", MsgBoxStyle.Exclamation, "ขออภัยไม่สามารถทำรายการได้")
+                Exit Sub
+            End If
+
+            frmEditEmp.primary_key = Primary_Key
+            If frmEditEmp.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                Load_Data()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+       
     End Sub
 
     Private Sub BtnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSearch.Click

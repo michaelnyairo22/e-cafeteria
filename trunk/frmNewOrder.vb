@@ -279,6 +279,7 @@ Public Class frmNewOrder
 
     Private Sub BtnEditOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEditOrder.Click
         Try
+
             frmSearchMenu.Detail_Key = Primary_Key
             frmSearchMenu.My_Food_Order_id = Val(Me.TxtOrderNo.Text)
             frmSearchMenu.TxtSearch.Text = Menu_Select
