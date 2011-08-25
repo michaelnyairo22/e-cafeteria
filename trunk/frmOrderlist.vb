@@ -308,9 +308,16 @@ Public Class frmOrderlist
 
 
 
-    Private Sub GridControl1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GridControl1.Click
+    Private Sub GridControl1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
+
+    'Private Sub GridView1_CustomRowCellEditForEditing(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs) Handles GridView1.CustomRowCellEditForEditing
+    '    Dim gv As GridView
+    '    gv = sender
+    '    Primary_Key = gv.GetRowCellValue(e.RowHandle, gv.Columns("order_id"))
+    'End Sub
+
 
     Private Sub GridView1_CustomRowCellEditForEditing(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs) Handles GridView1.CustomRowCellEditForEditing
         Dim gv As GridView
