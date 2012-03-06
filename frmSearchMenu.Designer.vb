@@ -20,12 +20,15 @@ Partial Class frmSearchMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.CboFoodOrderStatus = New System.Windows.Forms.ComboBox()
+        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
         Me.CboEmp = New System.Windows.Forms.ComboBox()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.RadioGroup1 = New DevExpress.XtraEditors.RadioGroup()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
+        Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtTotalprice = New System.Windows.Forms.TextBox()
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
@@ -54,6 +57,7 @@ Partial Class frmSearchMenu
         Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
+        Me.BtnDot = New System.Windows.Forms.Button()
         Me.BtnClear = New System.Windows.Forms.Button()
         Me.BtnNO10 = New System.Windows.Forms.Button()
         Me.BtnNO9 = New System.Windows.Forms.Button()
@@ -65,8 +69,6 @@ Partial Class frmSearchMenu
         Me.BtnNO3 = New System.Windows.Forms.Button()
         Me.BtnNO2 = New System.Windows.Forms.Button()
         Me.BtnNo1 = New System.Windows.Forms.Button()
-        Me.CboFoodOrderStatus = New System.Windows.Forms.ComboBox()
-        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,52 +99,76 @@ Partial Class frmSearchMenu
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(905, 47)
+        Me.PanelControl1.Size = New System.Drawing.Size(1031, 63)
         Me.PanelControl1.TabIndex = 0
+        '
+        'CboFoodOrderStatus
+        '
+        Me.CboFoodOrderStatus.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboFoodOrderStatus.FormattingEnabled = True
+        Me.CboFoodOrderStatus.Location = New System.Drawing.Point(854, 16)
+        Me.CboFoodOrderStatus.Name = "CboFoodOrderStatus"
+        Me.CboFoodOrderStatus.Size = New System.Drawing.Size(156, 27)
+        Me.CboFoodOrderStatus.TabIndex = 15
+        '
+        'LabelControl11
+        '
+        Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl11.Location = New System.Drawing.Point(761, 18)
+        Me.LabelControl11.Name = "LabelControl11"
+        Me.LabelControl11.Size = New System.Drawing.Size(87, 19)
+        Me.LabelControl11.TabIndex = 14
+        Me.LabelControl11.Text = "สถานะอาหาร"
         '
         'CboEmp
         '
+        Me.CboEmp.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboEmp.FormattingEnabled = True
-        Me.CboEmp.Location = New System.Drawing.Point(430, 13)
+        Me.CboEmp.Location = New System.Drawing.Point(543, 16)
         Me.CboEmp.Name = "CboEmp"
-        Me.CboEmp.Size = New System.Drawing.Size(230, 21)
+        Me.CboEmp.Size = New System.Drawing.Size(212, 27)
         Me.CboEmp.TabIndex = 13
         '
         'LabelControl6
         '
-        Me.LabelControl6.Location = New System.Drawing.Point(359, 15)
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl6.Location = New System.Drawing.Point(448, 18)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(61, 13)
+        Me.LabelControl6.Size = New System.Drawing.Size(89, 19)
         Me.LabelControl6.TabIndex = 12
         Me.LabelControl6.Text = "พนักงานเสริฟ"
         '
         'TxtSearch
         '
         Me.TxtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.TxtSearch.Location = New System.Drawing.Point(173, 12)
+        Me.TxtSearch.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSearch.Location = New System.Drawing.Point(173, 16)
         Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(180, 21)
-        Me.TxtSearch.TabIndex = 11
+        Me.TxtSearch.Size = New System.Drawing.Size(262, 27)
+        Me.TxtSearch.TabIndex = 0
         '
         'RadioGroup1
         '
         Me.RadioGroup1.EditValue = 0
-        Me.RadioGroup1.Location = New System.Drawing.Point(67, 10)
+        Me.RadioGroup1.Location = New System.Drawing.Point(67, 18)
         Me.RadioGroup1.Name = "RadioGroup1"
         Me.RadioGroup1.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(0, "รหัส"), New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "ชื่อ")})
         Me.RadioGroup1.Size = New System.Drawing.Size(100, 23)
         Me.RadioGroup1.TabIndex = 10
+        Me.RadioGroup1.TabStop = False
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(17, 16)
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl1.Location = New System.Drawing.Point(2, 19)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(44, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(64, 19)
         Me.LabelControl1.TabIndex = 9
         Me.LabelControl1.Text = "ค้นหาจาก"
         '
         'PanelControl2
         '
+        Me.PanelControl2.Controls.Add(Me.LabelControl12)
         Me.PanelControl2.Controls.Add(Me.LabelControl9)
         Me.PanelControl2.Controls.Add(Me.TxtTotalprice)
         Me.PanelControl2.Controls.Add(Me.LabelControl10)
@@ -162,8 +188,17 @@ Partial Class frmSearchMenu
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelControl2.Location = New System.Drawing.Point(0, 416)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(905, 85)
+        Me.PanelControl2.Size = New System.Drawing.Size(1031, 85)
         Me.PanelControl2.TabIndex = 1
+        '
+        'LabelControl12
+        '
+        Me.LabelControl12.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.LabelControl12.Location = New System.Drawing.Point(608, 16)
+        Me.LabelControl12.Name = "LabelControl12"
+        Me.LabelControl12.Size = New System.Drawing.Size(108, 13)
+        Me.LabelControl12.TabIndex = 25
+        Me.LabelControl12.Text = "<- แก้ไขจำนวนคลิกที่นี่"
         '
         'LabelControl9
         '
@@ -306,9 +341,9 @@ Partial Class frmSearchMenu
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnCancel.Image = Global.Chaba.My.Resources.Resources.delete
-        Me.BtnCancel.Location = New System.Drawing.Point(787, 6)
+        Me.BtnCancel.Location = New System.Drawing.Point(913, 6)
         Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(106, 35)
+        Me.BtnCancel.Size = New System.Drawing.Size(106, 45)
         Me.BtnCancel.TabIndex = 2
         Me.BtnCancel.Text = "ปิด"
         '
@@ -316,9 +351,9 @@ Partial Class frmSearchMenu
         '
         Me.BtnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnOK.Image = Global.Chaba.My.Resources.Resources.add2
-        Me.BtnOK.Location = New System.Drawing.Point(675, 6)
+        Me.BtnOK.Location = New System.Drawing.Point(801, 6)
         Me.BtnOK.Name = "BtnOK"
-        Me.BtnOK.Size = New System.Drawing.Size(106, 35)
+        Me.BtnOK.Size = New System.Drawing.Size(106, 45)
         Me.BtnOK.TabIndex = 1
         Me.BtnOK.Text = "เพิ่ม"
         '
@@ -326,9 +361,9 @@ Partial Class frmSearchMenu
         '
         Me.GroupControl1.Controls.Add(Me.SplitContainer1)
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl1.Location = New System.Drawing.Point(0, 47)
+        Me.GroupControl1.Location = New System.Drawing.Point(0, 63)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(905, 369)
+        Me.GroupControl1.Size = New System.Drawing.Size(1031, 353)
         Me.GroupControl1.TabIndex = 2
         Me.GroupControl1.Text = "เมนูอาหาร"
         '
@@ -345,17 +380,18 @@ Partial Class frmSearchMenu
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.PanelControl3)
-        Me.SplitContainer1.Size = New System.Drawing.Size(901, 345)
-        Me.SplitContainer1.SplitterDistance = 637
+        Me.SplitContainer1.Size = New System.Drawing.Size(1027, 329)
+        Me.SplitContainer1.SplitterDistance = 703
         Me.SplitContainer1.TabIndex = 3
         '
         'GridMenu
         '
         Me.GridMenu.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridMenu.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridMenu.Location = New System.Drawing.Point(0, 0)
         Me.GridMenu.MainView = Me.GridView1
         Me.GridMenu.Name = "GridMenu"
-        Me.GridMenu.Size = New System.Drawing.Size(637, 345)
+        Me.GridMenu.Size = New System.Drawing.Size(703, 329)
         Me.GridMenu.TabIndex = 2
         Me.GridMenu.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -371,7 +407,7 @@ Partial Class frmSearchMenu
         Me.GridColumn1.Name = "GridColumn1"
         Me.GridColumn1.Visible = True
         Me.GridColumn1.VisibleIndex = 0
-        Me.GridColumn1.Width = 47
+        Me.GridColumn1.Width = 96
         '
         'GridColumn2
         '
@@ -379,7 +415,7 @@ Partial Class frmSearchMenu
         Me.GridColumn2.Name = "GridColumn2"
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 1
-        Me.GridColumn2.Width = 47
+        Me.GridColumn2.Width = 220
         '
         'GridColumn3
         '
@@ -387,7 +423,7 @@ Partial Class frmSearchMenu
         Me.GridColumn3.Name = "GridColumn3"
         Me.GridColumn3.Visible = True
         Me.GridColumn3.VisibleIndex = 2
-        Me.GridColumn3.Width = 47
+        Me.GridColumn3.Width = 71
         '
         'GridColumn4
         '
@@ -395,7 +431,7 @@ Partial Class frmSearchMenu
         Me.GridColumn4.Name = "GridColumn4"
         Me.GridColumn4.Visible = True
         Me.GridColumn4.VisibleIndex = 3
-        Me.GridColumn4.Width = 45
+        Me.GridColumn4.Width = 68
         '
         'GridColumn5
         '
@@ -403,7 +439,7 @@ Partial Class frmSearchMenu
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.Visible = True
         Me.GridColumn5.VisibleIndex = 4
-        Me.GridColumn5.Width = 47
+        Me.GridColumn5.Width = 71
         '
         'GridColumn6
         '
@@ -411,7 +447,7 @@ Partial Class frmSearchMenu
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.Visible = True
         Me.GridColumn6.VisibleIndex = 5
-        Me.GridColumn6.Width = 47
+        Me.GridColumn6.Width = 71
         '
         'GridColumn7
         '
@@ -419,10 +455,11 @@ Partial Class frmSearchMenu
         Me.GridColumn7.Name = "GridColumn7"
         Me.GridColumn7.Visible = True
         Me.GridColumn7.VisibleIndex = 6
-        Me.GridColumn7.Width = 55
+        Me.GridColumn7.Width = 88
         '
         'PanelControl3
         '
+        Me.PanelControl3.Controls.Add(Me.BtnDot)
         Me.PanelControl3.Controls.Add(Me.BtnClear)
         Me.PanelControl3.Controls.Add(Me.BtnNO10)
         Me.PanelControl3.Controls.Add(Me.BtnNO9)
@@ -437,8 +474,21 @@ Partial Class frmSearchMenu
         Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl3.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(260, 345)
+        Me.PanelControl3.Size = New System.Drawing.Size(320, 329)
         Me.PanelControl3.TabIndex = 0
+        '
+        'BtnDot
+        '
+        Me.BtnDot.BackColor = System.Drawing.Color.Gainsboro
+        Me.BtnDot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnDot.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.BtnDot.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.BtnDot.Location = New System.Drawing.Point(108, 200)
+        Me.BtnDot.Name = "BtnDot"
+        Me.BtnDot.Size = New System.Drawing.Size(97, 59)
+        Me.BtnDot.TabIndex = 14
+        Me.BtnDot.Text = "."
+        Me.BtnDot.UseVisualStyleBackColor = False
         '
         'BtnClear
         '
@@ -446,9 +496,9 @@ Partial Class frmSearchMenu
         Me.BtnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnClear.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnClear.Location = New System.Drawing.Point(90, 131)
+        Me.BtnClear.Location = New System.Drawing.Point(211, 200)
         Me.BtnClear.Name = "BtnClear"
-        Me.BtnClear.Size = New System.Drawing.Size(164, 36)
+        Me.BtnClear.Size = New System.Drawing.Size(97, 59)
         Me.BtnClear.TabIndex = 13
         Me.BtnClear.Text = "Clear"
         Me.BtnClear.UseVisualStyleBackColor = False
@@ -459,9 +509,9 @@ Partial Class frmSearchMenu
         Me.BtnNO10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO10.Location = New System.Drawing.Point(5, 131)
+        Me.BtnNO10.Location = New System.Drawing.Point(5, 200)
         Me.BtnNO10.Name = "BtnNO10"
-        Me.BtnNO10.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO10.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO10.TabIndex = 11
         Me.BtnNO10.Text = "0"
         Me.BtnNO10.UseVisualStyleBackColor = False
@@ -472,9 +522,9 @@ Partial Class frmSearchMenu
         Me.BtnNO9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO9.Location = New System.Drawing.Point(175, 89)
+        Me.BtnNO9.Location = New System.Drawing.Point(211, 135)
         Me.BtnNO9.Name = "BtnNO9"
-        Me.BtnNO9.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO9.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO9.TabIndex = 10
         Me.BtnNO9.Text = "9"
         Me.BtnNO9.UseVisualStyleBackColor = False
@@ -485,9 +535,9 @@ Partial Class frmSearchMenu
         Me.BtnNO8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO8.Location = New System.Drawing.Point(90, 89)
+        Me.BtnNO8.Location = New System.Drawing.Point(108, 135)
         Me.BtnNO8.Name = "BtnNO8"
-        Me.BtnNO8.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO8.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO8.TabIndex = 9
         Me.BtnNO8.Text = "8"
         Me.BtnNO8.UseVisualStyleBackColor = False
@@ -498,9 +548,9 @@ Partial Class frmSearchMenu
         Me.BtnNO7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO7.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO7.Location = New System.Drawing.Point(5, 89)
+        Me.BtnNO7.Location = New System.Drawing.Point(5, 135)
         Me.BtnNO7.Name = "BtnNO7"
-        Me.BtnNO7.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO7.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO7.TabIndex = 8
         Me.BtnNO7.Text = "7"
         Me.BtnNO7.UseVisualStyleBackColor = False
@@ -511,9 +561,9 @@ Partial Class frmSearchMenu
         Me.BtnNO6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO6.Location = New System.Drawing.Point(175, 47)
+        Me.BtnNO6.Location = New System.Drawing.Point(211, 70)
         Me.BtnNO6.Name = "BtnNO6"
-        Me.BtnNO6.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO6.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO6.TabIndex = 7
         Me.BtnNO6.Text = "6"
         Me.BtnNO6.UseVisualStyleBackColor = False
@@ -524,9 +574,9 @@ Partial Class frmSearchMenu
         Me.BtnNO5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO5.Location = New System.Drawing.Point(90, 47)
+        Me.BtnNO5.Location = New System.Drawing.Point(108, 70)
         Me.BtnNO5.Name = "BtnNO5"
-        Me.BtnNO5.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO5.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO5.TabIndex = 6
         Me.BtnNO5.Text = "5"
         Me.BtnNO5.UseVisualStyleBackColor = False
@@ -537,9 +587,9 @@ Partial Class frmSearchMenu
         Me.BtnNO4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO4.Location = New System.Drawing.Point(5, 47)
+        Me.BtnNO4.Location = New System.Drawing.Point(5, 70)
         Me.BtnNO4.Name = "BtnNO4"
-        Me.BtnNO4.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO4.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO4.TabIndex = 5
         Me.BtnNO4.Text = "4"
         Me.BtnNO4.UseVisualStyleBackColor = False
@@ -550,9 +600,9 @@ Partial Class frmSearchMenu
         Me.BtnNO3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO3.Location = New System.Drawing.Point(175, 5)
+        Me.BtnNO3.Location = New System.Drawing.Point(211, 5)
         Me.BtnNO3.Name = "BtnNO3"
-        Me.BtnNO3.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO3.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO3.TabIndex = 4
         Me.BtnNO3.Text = "3"
         Me.BtnNO3.UseVisualStyleBackColor = False
@@ -563,9 +613,9 @@ Partial Class frmSearchMenu
         Me.BtnNO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnNO2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.BtnNO2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNO2.Location = New System.Drawing.Point(90, 5)
+        Me.BtnNO2.Location = New System.Drawing.Point(108, 5)
         Me.BtnNO2.Name = "BtnNO2"
-        Me.BtnNO2.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNO2.Size = New System.Drawing.Size(97, 59)
         Me.BtnNO2.TabIndex = 3
         Me.BtnNO2.Text = "2"
         Me.BtnNO2.UseVisualStyleBackColor = False
@@ -578,32 +628,16 @@ Partial Class frmSearchMenu
         Me.BtnNo1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.BtnNo1.Location = New System.Drawing.Point(5, 5)
         Me.BtnNo1.Name = "BtnNo1"
-        Me.BtnNo1.Size = New System.Drawing.Size(79, 36)
+        Me.BtnNo1.Size = New System.Drawing.Size(97, 59)
         Me.BtnNo1.TabIndex = 2
         Me.BtnNo1.Text = "1"
         Me.BtnNo1.UseVisualStyleBackColor = False
-        '
-        'CboFoodOrderStatus
-        '
-        Me.CboFoodOrderStatus.FormattingEnabled = True
-        Me.CboFoodOrderStatus.Location = New System.Drawing.Point(741, 13)
-        Me.CboFoodOrderStatus.Name = "CboFoodOrderStatus"
-        Me.CboFoodOrderStatus.Size = New System.Drawing.Size(156, 21)
-        Me.CboFoodOrderStatus.TabIndex = 15
-        '
-        'LabelControl11
-        '
-        Me.LabelControl11.Location = New System.Drawing.Point(670, 15)
-        Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(59, 13)
-        Me.LabelControl11.TabIndex = 14
-        Me.LabelControl11.Text = "สถานะอาหาร"
         '
         'frmSearchMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 501)
+        Me.ClientSize = New System.Drawing.Size(1031, 501)
         Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.PanelControl1)
@@ -679,4 +713,6 @@ Partial Class frmSearchMenu
     Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents CboFoodOrderStatus As System.Windows.Forms.ComboBox
     Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents BtnDot As System.Windows.Forms.Button
+    Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
 End Class

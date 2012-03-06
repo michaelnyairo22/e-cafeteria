@@ -65,10 +65,23 @@
             MsgBox(ex.Message)
         End Try
     End Function
-    Function Update_Menu(ByVal MenuName As String, ByVal MenuPrice As Integer, ByVal menu_discount As Integer, ByVal menu_committion As Integer, ByVal menu_group As Integer, ByVal menu_favoriate As String, ByVal Imgpart As String, ByVal menu_id As Integer, ByVal AutoMenu As String)
+    Function Update_Menu(ByVal MenuName As String, ByVal MenuPrice As Integer, ByVal menu_discount As Integer, ByVal menu_committion As Integer, ByVal menu_group As Integer, ByVal menu_favoriate As String, ByVal Imgpart As String, ByVal menu_id As String, ByVal menu_id_new As String, ByVal AutoMenu As String)
         Try
-            Strsql = "Update menu set menu_name = '" & MenuName & "',menu_price=" & MenuPrice & ",menu_discount=" & menu_discount & ",menu_committion=" & menu_committion & ",menu_group=" & menu_group & ",menu_image='" & Replace(Imgpart, "\", "\\") & "',menu_favoriate='" & menu_favoriate & "' ,menu_auto = '" & AutoMenu & "'"
-            Strsql = Strsql & " where menu_id = " & menu_id
+            If menu_id_new <> menu_id Then
+                Strsql = "Select count(*) as cc from menu where menu_id = '" & menu_id_new & "'"
+                If _mysql.MySQLExecuteScalar(Strsql) > 0 Then
+                    MsgBox("ขอภัยไม่สามารถปรับปรุงได้เนื่องจาก รหัสที่กำหนด มีอยู่ในระบบแล้ว", MsgBoxStyle.Exclamation, "ผลการปรับปรุง")
+                    Exit Function
+                End If
+            Else
+                Strsql = "Select count(*) as cc from menu where menu_name = '" & MenuName & "' and menu_id <> '" & menu_id_new & "'"
+                If _mysql.MySQLExecuteScalar(Strsql) > 0 Then
+                    MsgBox("ขอภัยไม่สามารถปรับปรุงได้เนื่องจาก ชื่อรายการที่กำหนด มีอยู่ในระบบแล้ว", MsgBoxStyle.Exclamation, "ผลการปรับปรุง")
+                    Exit Function
+                End If
+            End If
+            Strsql = "Update menu set menu_id= '" & menu_id_new & "' ,menu_name = '" & MenuName & "',menu_price=" & MenuPrice & ",menu_discount=" & menu_discount & ",menu_committion=" & menu_committion & ",menu_group=" & menu_group & ",menu_image='" & Replace(Imgpart, "\", "\\") & "',menu_favoriate='" & menu_favoriate & "' ,menu_auto = '" & AutoMenu & "'"
+            Strsql = Strsql & " where menu_id = '" & menu_id & "'"
 
 
             Select Case _mysql.MySQLExecute(Strsql)
@@ -93,9 +106,9 @@
             MsgBox(ex.Message)
         End Try
     End Function
-    Function Delete_Menu(ByVal menu_id As Integer)
+    Function Delete_Menu(ByVal menu_id As String)
         Try
-            Strsql = "Delete from menu where menu_id = " & menu_id
+            Strsql = "Delete from menu where menu_id = '" & menu_id & "'"
             Select Case _mysql.MySQLExecute(Strsql)
                 Case 0
 

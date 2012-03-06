@@ -5,7 +5,7 @@ Public Class frmOrderlist
     Dim Primary_Key As Integer = -1
     Dim DT_Order As New DataTable
 #Region "Function"
-    Sub Load_Data()
+    Sub Load_Data(ByVal ShowAllOpenOrder As Boolean)
 
         Me.GridColumn1.FieldName = "order_id"
         Me.GridColumn1.Caption = "รหัส"
@@ -50,9 +50,20 @@ Public Class frmOrderlist
         ' Me.GridColumn10.OptionsColumn.ReadOnly = True
 
         Try
-            Strsql = "select food_order.*,order_status.order_status_name from food_order left join order_status on food_order.order_status = order_status.order_status_id where date(order_date) = '" & Pn_Framework.MysqlDateTimeFormat(DTPOrderDate.DateTime, False) & "'"
+            Strsql = "select food_order.*,order_status.order_status_name from food_order left join order_status on food_order.order_status = order_status.order_status_id where "
 
-            If Me.ChkShowAll.Checked = False Then Strsql = Strsql & " and order_status = 1"
+            If ShowAllOpenOrder = False Then
+                Strsql = Strsql & " date(order_date) = '" & Pn_Framework.MysqlDateTimeFormat(DTPOrderDate.DateTime, False) & "'"
+                If Me.ChkShowAll.Checked = False Then Strsql = Strsql & " and order_status = 1"
+                
+                Me.ChkShowAll.Enabled = True
+                Me.DTPOrderDate.Enabled = True
+            Else
+                Me.ChkShowAll.Enabled = False
+                Me.DTPOrderDate.Enabled = False
+                Strsql = Strsql & "  order_status = 2"
+            End If
+            
 
 
             DT_Order = _mysql.GetMYSQLDataTable(Strsql, "food_order")
@@ -98,15 +109,15 @@ Public Class frmOrderlist
 
     Private Sub frmOrderlist_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.DTPOrderDate.DateTime = Now
-        Load_Data()
+        Load_Data(False)
     End Sub
 
     Private Sub DTPOrderDate_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DTPOrderDate.EditValueChanged
-        Load_Data()
+        Load_Data(False)
     End Sub
 
     Private Sub ChkShowAll_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkShowAll.CheckedChanged
-        Load_Data()
+        Load_Data(False)
     End Sub
 
     Private Sub BtnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancel.Click
@@ -137,7 +148,7 @@ Public Class frmOrderlist
                         If MsgBox("คุณต้องการเปิด Order ใหม่ใช่หรือไม่", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "ยืนยัน") = MsgBoxResult.No Then
                             frmTables.Close()
                             frmMain.BtnCheckTable.Enabled = True
-                            Load_Data()
+                            Load_Data(False)
                             Exit Sub
                         End If
                         'Update Table Status
@@ -239,16 +250,16 @@ Public Class frmOrderlist
                         frmNewOrder.Show()
                     End If
                     frmMain.BtnCheckTable.Enabled = True
-                    Load_Data()
+                    Load_Data(False)
                     Exit Sub
                 End If
             frmMain.BtnCheckTable.Enabled = True
-            Load_Data()
+                Load_Data(False)
                 Exit Sub
 
             End If
             frmMain.BtnCheckTable.Enabled = True
-            Load_Data()
+            Load_Data(False)
         Catch ex As Exception
             frmMain.BtnCheckTable.Enabled = True
             MsgBox(ex.Message)
@@ -277,7 +288,7 @@ Public Class frmOrderlist
             _mysql.MySQLExecute(Strsql)
 
             MsgBox("ลบข้อมูลเรียบร้อยแล้ว", MsgBoxStyle.Information, "ผลการลบข้อมูล")
-            Load_Data()
+            Load_Data(False)
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -292,7 +303,7 @@ Public Class frmOrderlist
             End If
             frmNewOrder.TxtOrderNo.Text = Primary_Key
             frmNewOrder.ShowDialog()
-            Load_Data()
+            Load_Data(False)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -323,5 +334,13 @@ Public Class frmOrderlist
         Dim gv As GridView
         gv = sender
         Primary_Key = gv.GetRowCellValue(e.RowHandle, gv.Columns("order_id"))
+    End Sub
+
+    Private Sub BtnShowAllOpenOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnShowAllOpenOrder.Click
+        Load_Data(True)
+    End Sub
+
+    Private Sub GridControl1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GridControl1.Click
+
     End Sub
 End Class

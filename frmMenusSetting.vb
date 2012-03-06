@@ -7,16 +7,25 @@ Public Class frmMenusSetting
 #Region "Function"
     Sub Load_Data()
         Try
-            Strsql = "SELECT menu.menu_id, menu.menu_name, menu.menu_price, menu.menu_discount, menu.menu_committion, menu.menu_group, menu.menu_favoriate, menugroup.group_id,"
-            Strsql = Strsql & " menugroup.group_name,menu_auto FROM menu left Join menugroup ON menu.menu_group = menugroup.group_id"
+            Dim Gropname As String = "ทั้งหมด"
+            Dim StrCreteria As String = ""
+
+            If CboGroup.EditValue = "ทั้งหมด" Then
+                Gropname = ""
+            Else
+                Gropname = CboGroup.EditValue
+            End If
             If Me.TxtSearch.Text <> "" Then
                 Select Case RadioGroup1.EditValue
                     Case 0
-                        Strsql = Strsql & " where menu_id like '" & Me.TxtSearch.Text & "%'"
+                        StrCreteria = " where menu_id like '" & Me.TxtSearch.Text & "%' and group_name like '" & Gropname & "%'"
                     Case 1
-                        Strsql = Strsql & " where menu_name like '" & Me.TxtSearch.Text & "%'"
+                        StrCreteria = " where menu_name like '" & Me.TxtSearch.Text & "%' and group_name like '" & Gropname & "%'"
                 End Select
+            Else
+                StrCreteria = " where group_name like '" & Gropname & "%'"
             End If
+
             Me.GridColumn1.FieldName = "menu_id"
             Me.GridColumn1.Caption = "รหัส"
             Me.GridColumn1.OptionsColumn.ReadOnly = True
@@ -50,7 +59,7 @@ Public Class frmMenusSetting
             Me.GridColumn8.OptionsColumn.ReadOnly = True
 
             Dim DT_Menu As New DataTable
-            DT_Menu = _mysql.GetMYSQLDataTable(Strsql, "Menu")
+            DT_Menu = _mysql.GetMYSQLDataTable(Strsql & StrCreteria & " order by menu.menu_id", "Menu")
             GridMenu.DataSource = DT_Menu
 
 
@@ -76,7 +85,22 @@ Public Class frmMenusSetting
     End Sub
 #End Region
     Private Sub frmMenus_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Load_Data()
+        Try
+            Strsql = "select group_name from menugroup "
+            Dim DT_MenuGroup As New DataTable
+            DT_MenuGroup = _mysql.GetMYSQLDataTable(Strsql, "Menu")
+            RepositoryItemLookUpEdit1.DataSource = DT_MenuGroup
+            RepositoryItemLookUpEdit1.DisplayMember = "group_name"
+            RepositoryItemLookUpEdit1.ValueMember = "group_name"
+
+            Strsql = "SELECT menu.menu_id, menu.menu_name, menu.menu_price, menu.menu_discount, menu.menu_committion, menu.menu_group, menu.menu_favoriate, menugroup.group_id,"
+            Strsql = Strsql & " menugroup.group_name,menu_auto FROM menu left Join menugroup ON menu.menu_group = menugroup.group_id"
+
+            Load_Data()
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub GridView1_CustomRowCellEditForEditing(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs) Handles GridView1.CustomRowCellEditForEditing
@@ -104,6 +128,8 @@ Public Class frmMenusSetting
     End Sub
 
     Private Sub BtnAdd_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnAdd.ItemClick
+        frmNewMenu.CustomGroupName = CboGroup.EditValue
+
         If frmNewMenu.ShowDialog() = Windows.Forms.DialogResult.OK Then
             Load_Data()
         End If
@@ -119,6 +145,9 @@ Public Class frmMenusSetting
     End Sub
 
     Private Sub BtnNew_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNew.Click
+        Me.TxtSearch.Text = ""
+        Me.CboGroup.EditValue = "ทั้งหมด"
+        Load_Data()
 
     End Sub
 
@@ -162,5 +191,33 @@ Public Class frmMenusSetting
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+
+
+    Private Sub CboGroup_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboGroup.EditValueChanged
+        Load_Data()
+    End Sub
+
+    Private Sub RadioGroup1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioGroup1.SelectedIndexChanged
+        Load_Data()
+    End Sub
+
+    Private Sub BtnManageGroup_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnManageGroup.ItemClick
+
+        With FrmMenuGroupList
+            .WindowState = FormWindowState.Maximized
+            .MdiParent = frmMain
+            .Show()
+        End With
+    End Sub
+
+    Private Sub BtnExportExcel_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnExportExcel.ItemClick
+        Me.TxtSearch.Text = ""
+        Me.CboGroup.EditValue = "ทั้งหมด"
+        Load_Data()
+        GridMenu.ExportToXls("c:\MenuExport.xls")
+        MsgBox("Export to c:\MenuExport.xls")
+
     End Sub
 End Class

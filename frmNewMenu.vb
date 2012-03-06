@@ -3,6 +3,7 @@ Public Class frmNewMenu
     Dim MyMenu As New ClsMenu
     Dim Strsql As String
     Dim _mysql As New ClsSQLhelper
+    Public CustomGroupName As String
 #Region "Function"
     Sub Copy_Image2Server()
         Dim StrFilename As String = ""
@@ -66,11 +67,10 @@ Public Class frmNewMenu
     Private Sub frmNewMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         With CboGroup
             Dim DT_Menu As DataTable = MyMenu.Get_GroupDataTable
-
             .DataSource = DT_Menu
             .DisplayMember = "group_name"
             .ValueMember = "group_id"
-
+            .Text = CustomGroupName
         End With
 
     End Sub

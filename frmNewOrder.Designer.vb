@@ -279,6 +279,7 @@ Partial Class frmNewOrder
         'GridControl1
         '
         Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridControl1.Location = New System.Drawing.Point(2, 22)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
@@ -359,8 +360,6 @@ Partial Class frmNewOrder
         '
         Me.GridColumn10.Caption = "GridColumn10"
         Me.GridColumn10.Name = "GridColumn10"
-        Me.GridColumn10.Visible = True
-        Me.GridColumn10.VisibleIndex = 9
         '
         'BarManager1
         '

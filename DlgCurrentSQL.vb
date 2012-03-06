@@ -12,4 +12,9 @@ Public Class DlgCurrentSQL
         Me.Close()
     End Sub
 
+    Private Sub DlgCurrentSQL_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.MemoCurrentSQL.Text = ClsSQLhelper.CurrMySql
+
+
+    End Sub
 End Class

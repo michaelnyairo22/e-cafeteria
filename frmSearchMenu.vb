@@ -169,6 +169,8 @@ Public Class frmSearchMenu
             Me.BtnOK.Text = "เพิ่ม"
             
         End If
+        Me.TxtCode.TabIndex = 0
+        Me.TxtCode.Focus()
     End Sub
 
 
@@ -200,19 +202,22 @@ Public Class frmSearchMenu
                     If Primary_Key = Nothing And GridView1.RowCount = 0 Then
                         MsgBox("กรุณาเลือกรายการ", MsgBoxStyle.Exclamation, "ไม่สามารถทำรายการได้")
                     Else
+                        If (MsgBox("คุณต้องการเพิ่มรายการนี้เข้าใน Order ใช่หรือไม่", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "ยืนยันการสั่งอาหาร")) = MsgBoxResult.No Then Exit Sub
+
                         Strsql = "Insert into food_order_detail (order_food_id,order_detail_menu_id,order_detail_price,order_detail_qty,order_detail_discount,order_detail_total_price,order_detail_waiter,order_detail_status,order_datetime) values "
                         Strsql = Strsql & "(" & Me.My_Food_Order_id & ",'" & Me.TxtCode.Text & "'," & Me.TxtPrice.Text & "," & Me.TxtQty.Text & "," & Me.txtDiscount.Text & "," & Me.TxtTotalprice.Text & "," & Me.CboEmp.SelectedValue & "," & Me.CboFoodOrderStatus.SelectedValue & ",now())"
                         _mysql.MySQLExecute(Strsql)
                        
                     End If
                 Case Else
+                    If (MsgBox("คุณต้องการแก้ไขรายการนี้ใช่หรือไม่", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "ยืนยันการสั่งอาหาร")) = MsgBoxResult.No Then Exit Sub
                     Strsql = "Update food_order_detail set order_detail_menu_id = '" & Me.TxtCode.Text & "' , order_detail_price = " & Me.TxtPrice.Text
                     Strsql = Strsql & "  ,order_detail_qty = " & Me.TxtQty.Text & " ,order_detail_discount =" & Me.txtDiscount.Text
                     Strsql = Strsql & "  ,order_detail_waiter = " & Me.CboEmp.SelectedValue & " ,order_detail_total_price = " & Me.TxtTotalprice.Text
                     Strsql = Strsql & "  , order_datetime=now(),order_detail_status = " & Me.CboFoodOrderStatus.SelectedValue
                     Strsql = Strsql & "   where  order_food_id  = '" & My_Food_Order_id & "' and order_food_detail_id  = " & Detail_Key
                     _mysql.MySQLExecute(Strsql)
-                  
+
             End Select
 
         Catch ex As Exception
@@ -236,10 +241,41 @@ Public Class frmSearchMenu
             Primary_Key = gv.GetRowCellValue(e.RowHandle, gv.Columns("menu_id"))
             Me.TxtCode.Text = Primary_Key
             Me.TxtName.Text = gv.GetRowCellValue(e.RowHandle, gv.Columns("menu_name"))
-            Me.TxtPrice.Text = gv.GetRowCellValue(e.RowHandle, gv.Columns("menu_price"))
+
+            If Val(Me.TxtPrice.Text) = 0 Then
+                Me.TxtPrice.Text = gv.GetRowCellValue(e.RowHandle, gv.Columns("menu_price"))
+            End If
+
             Me.txtDiscount.Text = gv.GetRowCellValue(e.RowHandle, gv.Columns("menu_discount"))
-            Me.TxtQty.Text = 1
+            If Val(Me.TxtQty.Text) <= 1 Then
+                Me.TxtQty.Text = 1
+            End If
+
             Me.TxtTotalprice.Text = (Val(Me.TxtPrice.Text) - Val(Me.txtDiscount.Text)) * Val(Me.TxtQty.Text)
+            Me.TxtQty.Focus()
+
+            frmAddOrderQty.TxtQty.Text = Me.TxtQty.Text
+            If frmAddOrderQty.ShowDialog <> Windows.Forms.DialogResult.OK Then
+                frmAddOrderQty.Dispose()
+                Exit Sub
+            Else
+                Me.TxtQty.Text = frmAddOrderQty.TxtQty.Text
+                frmAddOrderQty.Dispose()
+
+                If gv.GetRowCellValue(e.RowHandle, gv.Columns("menu_price")) = 0 Then
+                    frmAddOrderPrice.TxtQty.Text = TxtPrice.Text
+                    If frmAddOrderPrice.ShowDialog <> Windows.Forms.DialogResult.OK Then
+                        frmAddOrderPrice.Dispose()
+                    Else
+                        Me.TxtPrice.Text = frmAddOrderPrice.TxtQty.Text
+                        frmAddOrderPrice.Dispose()
+                    End If
+
+                End If
+                Me.BtnOK_Click(sender, e)
+
+            End If
+
         Catch ex As Exception
             With frmDebug
                 .lblFormName.Text = Me.Name
@@ -249,7 +285,7 @@ Public Class frmSearchMenu
                 .ShowDialog()
             End With
         End Try
-     
+
     End Sub
 
     Private Sub BtnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnClear.Click
@@ -297,12 +333,97 @@ Public Class frmSearchMenu
         TxtSearch.Text = TxtSearch.Text & "0"
     End Sub
 
+    Private Sub TxtSearch_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtSearch.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Try
+                If DT_Menu.Rows.Count = 1 Then
+                    If frmAddOrderQty.ShowDialog <> Windows.Forms.DialogResult.OK Then
+                        frmAddOrderQty.Dispose()
+                        Exit Sub
+                    Else
+                        Me.TxtQty.Text = frmAddOrderQty.TxtQty.Text
+                        frmAddOrderQty.Dispose()
+                        Me.BtnOK_Click(sender, e)
+
+                    End If
+                End If
+
+            Catch ex As Exception
+                With frmDebug
+                    .lblFormName.Text = Me.Name
+                    .lblFunctionName.Text = "TxtSearch_KeyDown"
+                    .MemoErr_Description.Text = ex.Message
+                    .MemoSQL.Text = Strsql
+                    .ShowDialog()
+                End With
+            End Try
+        End If
+
+        If IsNumeric(e.KeyCode) = True Then
+
+            RadioGroup1.EditValue = 0
+
+
+        Else
+            RadioGroup1.EditValue = 1
+
+        End If
+
+    End Sub
+
     Private Sub TxtSearch_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtSearch.TextChanged
         Load_Data()
     End Sub
 
+    Private Sub TxtQty_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles TxtQty.Click
+
+    End Sub
+
 
     Private Sub TxtQty_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtQty.EditValueChanged
+        Me.TxtTotalprice.Text = (Val(Me.TxtPrice.Text) - Val(Me.txtDiscount.Text)) * Val(Me.TxtQty.Text)
+    End Sub
+
+    Private Sub BtnDot_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDot.Click
+        TxtSearch.Text = TxtSearch.Text & "."
+    End Sub
+
+    Private Sub TxtQty_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TxtQty.GotFocus
+
+
+    End Sub
+
+    Private Sub TxtQty_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TxtQty.MouseClick
+
+
+    End Sub
+
+    Private Sub TxtQty_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TxtQty.MouseDown
+        Try
+            If DT_Menu.Rows.Count = 1 Then
+                If frmAddOrderQty.ShowDialog <> Windows.Forms.DialogResult.OK Then
+                    frmAddOrderQty.Dispose()
+                    Exit Sub
+                Else
+                    Me.TxtQty.Text = frmAddOrderQty.TxtQty.Text
+                    frmAddOrderQty.Dispose()
+                    Me.BtnOK_Click(sender, e)
+
+                End If
+            End If
+
+        Catch ex As Exception
+            With frmDebug
+                .lblFormName.Text = Me.Name
+                .lblFunctionName.Text = "TxtQty_Click"
+                .MemoErr_Description.Text = ex.Message
+                .MemoSQL.Text = Strsql
+                .ShowDialog()
+            End With
+        End Try
+    End Sub
+
+    Private Sub TxtPrice_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtPrice.TextChanged
         Me.TxtTotalprice.Text = (Val(Me.TxtPrice.Text) - Val(Me.txtDiscount.Text)) * Val(Me.TxtQty.Text)
     End Sub
 End Class

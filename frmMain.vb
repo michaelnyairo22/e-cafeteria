@@ -26,7 +26,7 @@
 
 
     Private Sub BtnCurrentSQL_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCurrentSQL.ItemClick
-        With frmDebug
+        With DlgCurrentSQL
             .MdiParent = Me
             .Show()
         End With
@@ -227,5 +227,17 @@
             .MdiParent = Me
             .Show()
         End With
+    End Sub
+
+    Private Sub BtnEncrypt_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEncrypt.ItemClick
+        With FrmCrypt
+
+            .MdiParent = Me
+            .Show()
+        End With
+    End Sub
+
+    Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

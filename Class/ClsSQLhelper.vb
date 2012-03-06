@@ -6,6 +6,8 @@ Imports System.Data.SqlClient
 Imports Crypto
 Imports System.Xml
 Public Class ClsSQLhelper
+    Public Shared CurrMySql As String = ""
+
     Public Shared Sub UpdateAppSettings(ByVal KeyName As String, ByVal KeyValue As String)
         Dim XmlDoc As New XmlDocument()
         'XmlDoc.Load(Application.StartupPath & "/HRManager.exe.config")
@@ -83,6 +85,7 @@ Public Class ClsSQLhelper
     Function GetMYSQLDataset(ByVal Strsql As String, _
            Optional ByVal DatasetName As String = "Dataset1", _
            Optional ByVal TableName As String = "Table") As DataSet
+        CurrMySql = Strsql
         Dim MyConnq As New MySqlConnection
         MyConnq.ConnectionString = ConnMysql
         Dim DA As New MySqlDataAdapter(Strsql, MyConnq)
@@ -98,6 +101,7 @@ Public Class ClsSQLhelper
     Function GetMYSQLDataset(ByVal Strsql As String, ByVal DatasetName As DataSet, _
           Optional ByVal TableName As String = "Table") As DataSet
         Dim MyConnq As New MySqlConnection
+        CurrMySql = Strsql
         MyConnq.ConnectionString = ConnMysql
         Dim DA As New MySqlDataAdapter(Strsql, MyConnq)
         Try
@@ -111,6 +115,7 @@ Public Class ClsSQLhelper
     End Function
     Sub FillDataset(ByVal Strsql As String, ByVal DatasetName As DataSet, ByVal TableName As String)
         Dim MyConnq As New MySqlConnection
+        CurrMySql = Strsql
         MyConnq.ConnectionString = ConnMysql
         Dim DA As New MySqlDataAdapter(Strsql, MyConnq)
         Try
@@ -126,6 +131,7 @@ Public Class ClsSQLhelper
     Function GetMYSQLDataTable(ByVal Strsql As String, _
     Optional ByVal TableName As String = "Table") As DataTable
         Dim MyConnq As New MySqlConnection
+        CurrMySql = Strsql
         MyConnq.ConnectionString = ConnMysql
         Dim DA As New MySqlDataAdapter(Strsql, MyConnq)
         Dim DT As New DataTable(TableName)
@@ -141,6 +147,7 @@ Public Class ClsSQLhelper
 
     Function MySQLExecute(ByRef CmdStr As String, ByVal Conn As MySqlConnection) As Integer
         Dim Cmd As New MySqlCommand
+        CurrMySql = CmdStr
         Cmd.CommandText = CmdStr
         Cmd.Connection = Conn
         Dim X As Integer
@@ -156,6 +163,7 @@ Public Class ClsSQLhelper
     End Function
     Function MySQLExecute(ByRef CmdStr As String) As Integer
         Dim MyConnq As New MySqlConnection
+        CurrMySql = CmdStr
         MyConnq.ConnectionString = ConnMysql
         Dim Cmd As New MySqlCommand
         Cmd.CommandText = CmdStr
@@ -175,6 +183,8 @@ Public Class ClsSQLhelper
     Function MySQLExecuteScalar(ByVal connString As String, ByVal cmdType As CommandType, ByVal cmdText As String, ByVal cmdParms As MySqlParameter()) As Object
         Dim cmd As MySqlCommand = New MySqlCommand
         Dim conn As MySqlConnection = New MySqlConnection(connString)
+        CurrMySql = cmdText
+
         Try
             MySQLPrepareCommand(cmd, conn, cmdType, cmdText, cmdParms)
             Dim val As Object = cmd.ExecuteScalar()
@@ -195,6 +205,7 @@ Public Class ClsSQLhelper
     End Function
     Function MySQLExecuteScalar(ByVal cmdType As CommandType, ByVal cmdText As String, ByVal cmdParms As MySqlParameter()) As Object
         Dim MyConnq As New MySqlConnection
+        CurrMySql = cmdText
         MyConnq.ConnectionString = ConnMysql
         Dim cmd As MySqlCommand = New MySqlCommand
         Try
@@ -214,6 +225,8 @@ Public Class ClsSQLhelper
     Function MySQLExecuteScalar(ByVal cmdText As String) As Object
         Dim MyConnq As New MySqlConnection
         Dim FlgConError As Boolean = False
+        CurrMySql = cmdText
+
         MyConnq.ConnectionString = ConnMysql
         Dim cmd As MySqlCommand = New MySqlCommand
         Try
@@ -252,6 +265,7 @@ Public Class ClsSQLhelper
     End Function
 
     Public Function MySQLPrepareCommand(ByRef cmd As MySqlCommand, ByRef conn As MySqlConnection, ByRef cmdType As CommandType, ByRef cmdText As String, ByRef cmdParms As MySqlParameter()) As Boolean
+        CurrMySql = cmdText
         If Not conn.State = ConnectionState.Open Then
             'MsgBox("Connection open")
             conn.Open()
@@ -305,10 +319,12 @@ Public Class ClsSQLhelper
     End Sub
     Public Function MYSQLCreateCommand(ByVal Strsql As String) As MySqlCommand
         Dim cmd As New MySqlCommand(Strsql)
+        CurrMySql = Strsql
         Return cmd
     End Function
-    Public Shared Function MYSQLExecQuery(ByVal ProcedureName As String, ByVal Parms As MySqlParameter(), ByVal sqlconn As MySqlConnection, Optional ByVal DatasetName As String = "Dataset1") As DataSet
+    Public Function MYSQLExecQuery(ByVal ProcedureName As String, ByVal Parms As MySqlParameter(), ByVal sqlconn As MySqlConnection, Optional ByVal DatasetName As String = "Dataset1") As DataSet
         Dim dsDataSet As New DataSet(DatasetName)
+        CurrMySql = ProcedureName
         ' Configure the MySqlCommand object
         Dim _cmdSqlCommand As MySqlCommand = New MySqlCommand()
 
@@ -327,7 +343,7 @@ Public Class ClsSQLhelper
                 Next
             End If
         End With
-
+        CurrMySql = ProcedureName
         Dim _adpAdapter As MySqlDataAdapter = New MySqlDataAdapter()
         ' Configure Adapter to use newly created command object and fill the dataset.
         _adpAdapter.SelectCommand = _cmdSqlCommand

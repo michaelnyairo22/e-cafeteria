@@ -67,16 +67,22 @@
     <Reference Include="EurekaLog, Version=6.5.9.0, Culture=neutral, PublicKeyToken=c07f3a4a477a2e90, processorArchitecture=MSIL" />
     <Reference Include="FastReport, Version=1.6.17.0, Culture=neutral, PublicKeyToken=9e2f11070db1b41c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\F_R_1_6_17\FastReport.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Components\F_R_1_6_17\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars">
+      <HintPath>..\..\..\..\..\..\Components\F_R_1_6_17\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Editor">
+      <HintPath>..\..\..\..\..\..\Components\F_R_1_6_17\FastReport.Editor.dll</HintPath>
     </Reference>
     <Reference Include="FastReport.Install">
-      <HintPath>..\..\F_R_1_6_17\FastReport.Install.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Components\F_R_1_6_17\FastReport.Install.dll</HintPath>
     </Reference>
     <Reference Include="FastReport.VSDesign">
-      <HintPath>..\..\F_R_1_6_17\FastReport.VSDesign.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Components\F_R_1_6_17\FastReport.VSDesign.dll</HintPath>
     </Reference>
     <Reference Include="FastReport.Web">
-      <HintPath>..\..\F_R_1_6_17\FastReport.Web.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Components\F_R_1_6_17\FastReport.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -135,10 +141,34 @@
     <Compile Include="DialogPreparing.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DlgAddNewGroup.Designer.vb">
+      <DependentUpon>DlgAddNewGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DlgAddNewGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DlgCurrentSQL.Designer.vb">
       <DependentUpon>DlgCurrentSQL.vb</DependentUpon>
     </Compile>
     <Compile Include="DlgCurrentSQL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgEditGroup.Designer.vb">
+      <DependentUpon>DlgEditGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DlgEditGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddOrderPrice.Designer.vb">
+      <DependentUpon>frmAddOrderPrice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddOrderPrice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddOrderQty.Designer.vb">
+      <DependentUpon>frmAddOrderQty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddOrderQty.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmbooking.Designer.vb">
@@ -193,6 +223,12 @@
       <DependentUpon>FrmFullSize.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmFullSize.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuGroupList.Designer.vb">
+      <DependentUpon>FrmMenuGroupList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuGroupList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMoveTable.Designer.vb">
@@ -308,10 +344,10 @@
     <Compile Include="frmTablesSettings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XtraForm1.Designer.vb">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
+    <Compile Include="FrmCrypt.Designer.vb">
+      <DependentUpon>FrmCrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraForm1.vb">
+    <Compile Include="FrmCrypt.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -319,8 +355,20 @@
     <EmbeddedResource Include="DialogPreparing.resx">
       <DependentUpon>DialogPreparing.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgAddNewGroup.resx">
+      <DependentUpon>DlgAddNewGroup.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgCurrentSQL.resx">
       <DependentUpon>DlgCurrentSQL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgEditGroup.resx">
+      <DependentUpon>DlgEditGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddOrderPrice.resx">
+      <DependentUpon>frmAddOrderPrice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddOrderQty.resx">
+      <DependentUpon>frmAddOrderQty.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmbooking.resx">
       <DependentUpon>frmbooking.vb</DependentUpon>
@@ -348,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFullSize.resx">
       <DependentUpon>FrmFullSize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuGroupList.resx">
+      <DependentUpon>FrmMenuGroupList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMoveTable.resx">
       <DependentUpon>frmMoveTable.vb</DependentUpon>
@@ -401,8 +452,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XtraForm1.resx">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
+    <EmbeddedResource Include="FrmCrypt.resx">
+      <DependentUpon>FrmCrypt.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -472,6 +523,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cashier.ico" />
+    <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\preferences.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\zoom_out.png" />
@@ -493,6 +545,8 @@
     <None Include="Resources\alarmclock2.png" />
     <None Include="Resources\alarmclock_stop.png" />
     <Content Include="cash_register.ico" />
+    <None Include="Resources\max.png" />
+    <None Include="Resources\min.png" />
     <Content Include="Resources\NoPix.jpg" />
     <None Include="Resources\NoPix1.jpg" />
   </ItemGroup>
