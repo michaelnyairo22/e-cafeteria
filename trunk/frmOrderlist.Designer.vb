@@ -29,6 +29,7 @@ Partial Class frmOrderlist
         Me.DTPOrderDate = New DevExpress.XtraEditors.DateEdit()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
+        Me.BtnShowAllOpenOrder = New System.Windows.Forms.Button()
         Me.TxtTotalValues = New DevExpress.XtraEditors.TextEdit()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -68,14 +69,14 @@ Partial Class frmOrderlist
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(989, 44)
+        Me.PanelControl1.Size = New System.Drawing.Size(1132, 44)
         Me.PanelControl1.TabIndex = 0
         '
         'BtnPrint
         '
         Me.BtnPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnPrint.Image = Global.Chaba.My.Resources.Resources.printer
-        Me.BtnPrint.Location = New System.Drawing.Point(781, 5)
+        Me.BtnPrint.Location = New System.Drawing.Point(924, 5)
         Me.BtnPrint.Name = "BtnPrint"
         Me.BtnPrint.Size = New System.Drawing.Size(95, 33)
         Me.BtnPrint.TabIndex = 15
@@ -85,7 +86,7 @@ Partial Class frmOrderlist
         '
         Me.BtnEditOrder.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnEditOrder.Image = Global.Chaba.My.Resources.Resources.contract
-        Me.BtnEditOrder.Location = New System.Drawing.Point(579, 5)
+        Me.BtnEditOrder.Location = New System.Drawing.Point(722, 5)
         Me.BtnEditOrder.Name = "BtnEditOrder"
         Me.BtnEditOrder.Size = New System.Drawing.Size(95, 33)
         Me.BtnEditOrder.TabIndex = 14
@@ -95,7 +96,7 @@ Partial Class frmOrderlist
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnCancel.Image = Global.Chaba.My.Resources.Resources.delete
-        Me.BtnCancel.Location = New System.Drawing.Point(882, 5)
+        Me.BtnCancel.Location = New System.Drawing.Point(1025, 5)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(95, 33)
         Me.BtnCancel.TabIndex = 13
@@ -105,7 +106,7 @@ Partial Class frmOrderlist
         '
         Me.BtnNewOrder.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnNewOrder.Image = Global.Chaba.My.Resources.Resources.add2
-        Me.BtnNewOrder.Location = New System.Drawing.Point(478, 5)
+        Me.BtnNewOrder.Location = New System.Drawing.Point(621, 5)
         Me.BtnNewOrder.Name = "BtnNewOrder"
         Me.BtnNewOrder.Size = New System.Drawing.Size(95, 33)
         Me.BtnNewOrder.TabIndex = 12
@@ -115,7 +116,7 @@ Partial Class frmOrderlist
         '
         Me.BtnDelOrder.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnDelOrder.Image = Global.Chaba.My.Resources.Resources.delete2
-        Me.BtnDelOrder.Location = New System.Drawing.Point(680, 5)
+        Me.BtnDelOrder.Location = New System.Drawing.Point(823, 5)
         Me.BtnDelOrder.Name = "BtnDelOrder"
         Me.BtnDelOrder.Size = New System.Drawing.Size(95, 33)
         Me.BtnDelOrder.TabIndex = 10
@@ -153,19 +154,29 @@ Partial Class frmOrderlist
         '
         'PanelControl2
         '
+        Me.PanelControl2.Controls.Add(Me.BtnShowAllOpenOrder)
         Me.PanelControl2.Controls.Add(Me.TxtTotalValues)
         Me.PanelControl2.Controls.Add(Me.Label3)
         Me.PanelControl2.Controls.Add(Me.Label2)
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl2.Location = New System.Drawing.Point(0, 548)
+        Me.PanelControl2.Location = New System.Drawing.Point(0, 355)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(989, 41)
+        Me.PanelControl2.Size = New System.Drawing.Size(1132, 41)
         Me.PanelControl2.TabIndex = 2
+        '
+        'BtnShowAllOpenOrder
+        '
+        Me.BtnShowAllOpenOrder.Location = New System.Drawing.Point(5, 5)
+        Me.BtnShowAllOpenOrder.Name = "BtnShowAllOpenOrder"
+        Me.BtnShowAllOpenOrder.Size = New System.Drawing.Size(163, 31)
+        Me.BtnShowAllOpenOrder.TabIndex = 4
+        Me.BtnShowAllOpenOrder.Text = "แสดงรายการที่ยังไม่ได้ปิด"
+        Me.BtnShowAllOpenOrder.UseVisualStyleBackColor = True
         '
         'TxtTotalValues
         '
         Me.TxtTotalValues.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtTotalValues.Location = New System.Drawing.Point(830, 10)
+        Me.TxtTotalValues.Location = New System.Drawing.Point(973, 10)
         Me.TxtTotalValues.Name = "TxtTotalValues"
         Me.TxtTotalValues.Properties.Appearance.BackColor = System.Drawing.Color.Black
         Me.TxtTotalValues.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -183,7 +194,7 @@ Partial Class frmOrderlist
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(936, 13)
+        Me.Label3.Location = New System.Drawing.Point(1079, 13)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(41, 19)
         Me.Label3.TabIndex = 2
@@ -194,7 +205,7 @@ Partial Class frmOrderlist
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(736, 13)
+        Me.Label2.Location = New System.Drawing.Point(879, 13)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(94, 19)
         Me.Label2.TabIndex = 1
@@ -206,7 +217,7 @@ Partial Class frmOrderlist
         Me.GridControl1.Location = New System.Drawing.Point(0, 44)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(989, 504)
+        Me.GridControl1.Size = New System.Drawing.Size(1132, 311)
         Me.GridControl1.TabIndex = 3
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -290,7 +301,7 @@ Partial Class frmOrderlist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(989, 589)
+        Me.ClientSize = New System.Drawing.Size(1132, 396)
         Me.Controls.Add(Me.GridControl1)
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.PanelControl1)
@@ -335,4 +346,5 @@ Partial Class frmOrderlist
     Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents BtnShowAllOpenOrder As System.Windows.Forms.Button
 End Class

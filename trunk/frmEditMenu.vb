@@ -103,7 +103,7 @@ Public Class frmEditMenu
     Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
         If MsgBox("คุณต้องการยืนยันการปรับปรุงใช่หรือไม่", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "ยืนยันการปรับปรุง") = MsgBoxResult.No Then Exit Sub
         If Me.TxtImgPart.Text <> "" Then Copy_Image2Server()
-        MyMenu.Update_Menu(Me.TxtMenuName.Text, Me.TxtPrice.EditValue, Me.TxtDiscout.EditValue, TxtComittion.EditValue, Me.CboGroup.SelectedValue, IIf(ChkFavmenu.Checked = True, "Y", "N"), Me.TxtImgPart.Text, primary_key, IIf(Me.ChkAutoMenu.Checked = True, "Y", "N"))
+        MyMenu.Update_Menu(Me.TxtMenuName.Text, Me.TxtPrice.EditValue, Me.TxtDiscout.EditValue, TxtComittion.EditValue, Me.CboGroup.SelectedValue, IIf(ChkFavmenu.Checked = True, "Y", "N"), Me.TxtImgPart.Text, primary_key, Me.TxtMenuID.Text, IIf(Me.ChkAutoMenu.Checked = True, "Y", "N"))
         Me.DialogResult = Windows.Forms.DialogResult.OK
         Me.Dispose()
     End Sub

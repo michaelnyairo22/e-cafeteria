@@ -31,6 +31,7 @@ Partial Class frmMain
         Me.BtnExit = New DevExpress.XtraBars.BarButtonItem()
         Me.BtnUser = New DevExpress.XtraBars.BarButtonItem()
         Me.BtnOrderList = New DevExpress.XtraBars.BarButtonItem()
+        Me.BtnEncrypt = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -53,14 +54,19 @@ Partial Class frmMain
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnDB, Me.BtnCurrentSQL, Me.BtnZone, Me.BtnTables, Me.BtnMenus, Me.BtnEmp, Me.BtnCheckTable, Me.BtnExit, Me.BtnUser, Me.BtnOrderList})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnDB, Me.BtnCurrentSQL, Me.BtnZone, Me.BtnTables, Me.BtnMenus, Me.BtnEmp, Me.BtnCheckTable, Me.BtnExit, Me.BtnUser, Me.BtnOrderList, Me.BtnEncrypt})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 18
+        Me.RibbonControl.MaxItemId = 19
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3})
+        Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
         Me.RibbonControl.SelectedPage = Me.RibbonPage1
+        Me.RibbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.[False]
+        Me.RibbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show
+        Me.RibbonControl.ShowToolbarCustomizeItem = False
         Me.RibbonControl.Size = New System.Drawing.Size(1004, 145)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
+        Me.RibbonControl.Toolbar.ShowCustomizeItem = False
         '
         'BtnDB
         '
@@ -132,6 +138,13 @@ Partial Class frmMain
         Me.BtnOrderList.LargeGlyph = Global.Chaba.My.Resources.Resources.address_book2
         Me.BtnOrderList.Name = "BtnOrderList"
         '
+        'BtnEncrypt
+        '
+        Me.BtnEncrypt.Caption = "Crypt"
+        Me.BtnEncrypt.Id = 18
+        Me.BtnEncrypt.LargeGlyph = Global.Chaba.My.Resources.Resources.secrecy_icon
+        Me.BtnEncrypt.Name = "BtnEncrypt"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup3})
@@ -177,6 +190,7 @@ Partial Class frmMain
         'RibbonPageGroup4
         '
         Me.RibbonPageGroup4.ItemLinks.Add(Me.BtnCurrentSQL)
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.BtnEncrypt)
         Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
         Me.RibbonPageGroup4.Text = "การ Debuging"
         '
@@ -248,6 +262,7 @@ Partial Class frmMain
     Friend WithEvents BtnUser As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents NewCus As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnOrderList As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnEncrypt As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

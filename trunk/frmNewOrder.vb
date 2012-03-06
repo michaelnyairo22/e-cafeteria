@@ -8,6 +8,8 @@ Public Class frmNewOrder
     Dim Menu_Qty As Integer
     Dim Menu_Discount As Integer
     Dim Menu_Name As String
+    Dim Menu_Price As Integer
+    Dim Menu_total_Price As Integer
     Dim Menu_Waiter As String
     Dim Menu_Food_status As String
 
@@ -83,7 +85,7 @@ Public Class frmNewOrder
             Dim CurrentPrice As Double = 0
             Dim CurrentDiscount As Double = 0
             Try
-                Strsql = "Select Sum(order_detail_price) as price , sum(order_detail_discount) as discount from food_order_detail where order_food_id  = " & Me.TxtOrderNo.Text
+                Strsql = "Select Sum(order_detail_total_price) as price , sum(order_detail_discount) as discount from food_order_detail where order_food_id  = " & Me.TxtOrderNo.Text
                 Dim DT_Summary As New DataTable
                 DT_Summary = _mysql.GetMYSQLDataTable(Strsql, "food_order_detail")
                 If DT_Summary.Rows.Count <> 0 Then
@@ -223,8 +225,11 @@ Public Class frmNewOrder
             Menu_Name = gv.GetRowCellValue(e.RowHandle, gv.Columns("menu_name"))
             Menu_Qty = gv.GetRowCellValue(e.RowHandle, gv.Columns("order_detail_qty"))
             Menu_Discount = gv.GetRowCellValue(e.RowHandle, gv.Columns("order_detail_discount"))
-            Menu_Waiter = gv.GetRowCellValue(e.RowHandle, gv.Columns("fullname"))
+            Menu_Waiter = gv.GetRowCellValue(e.RowHandle, gv.Columns("fullname")).ToString
             Menu_Food_status = gv.GetRowCellValue(e.RowHandle, gv.Columns("food_order_status_name"))
+            Menu_Price = gv.GetRowCellValue(e.RowHandle, gv.Columns("order_detail_price"))
+            Menu_total_Price = gv.GetRowCellValue(e.RowHandle, gv.Columns("order_detail_total_price"))
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -279,7 +284,7 @@ Public Class frmNewOrder
 
     Private Sub BtnEditOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEditOrder.Click
         Try
-
+            If Primary_Key < 0 Then Exit Sub
             frmSearchMenu.Detail_Key = Primary_Key
             frmSearchMenu.My_Food_Order_id = Val(Me.TxtOrderNo.Text)
             frmSearchMenu.TxtSearch.Text = Menu_Select
@@ -289,6 +294,8 @@ Public Class frmNewOrder
             frmSearchMenu.txtDiscount.Text = Menu_Discount
             frmSearchMenu.CboEmp.SelectedText = Menu_Waiter
             frmSearchMenu.CboFoodOrderStatus.Text = Menu_Food_status
+            frmSearchMenu.TxtPrice.Text = Menu_total_Price
+            frmSearchMenu.TxtTotalprice.Text = Menu_Price
             If frmSearchMenu.ShowDialog = Windows.Forms.DialogResult.Cancel Then
                 frmSearchMenu.Dispose()
                 Exit Sub

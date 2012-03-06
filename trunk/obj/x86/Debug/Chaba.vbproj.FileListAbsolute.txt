@@ -3,8 +3,6 @@ D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\De
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\Chaba.pdb
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\Chaba.xml
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\Crypto.dll
-D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\Crypto.pdb
-D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\Crypto.xml
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.DialogPreparing.resources
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.DlgCurrentSQL.resources
@@ -33,7 +31,6 @@ D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x8
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.frmZoneSettings.resources
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.Resources.resources
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.frmMain.resources
-D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.XtraForm1.resources
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.exe.licenses
@@ -88,3 +85,17 @@ D:\DotNet Projects\Chaba\bin\Debug\FastReport.Bars.dll
 D:\DotNet Projects\Chaba\bin\Debug\FastReport.Editor.dll
 D:\DotNet Projects\Chaba\bin\Debug\FastReport.xml
 D:\DotNet Projects\Chaba\bin\Debug\FastReport.Web.xml
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.Bars.dll
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.dll
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.Editor.dll
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.Install.dll
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.VSDesign.dll
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.Web.dll
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.xml
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\bin\Debug\FastReport.Web.xml
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.FrmCrypt.resources
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.frmAddOrderQty.resources
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.FrmMenuGroupList.resources
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.DlgAddNewGroup.resources
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.DlgEditGroup.resources
+D:\Profile Documents\My Documents\Visual Studio 2010\Projects\Chaba\Chaba\obj\x86\Debug\Chaba.frmAddOrderPrice.resources

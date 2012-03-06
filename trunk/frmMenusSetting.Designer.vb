@@ -45,13 +45,21 @@ Partial Class frmMenusSetting
         Me.BtnDelete = New DevExpress.XtraBars.BarButtonItem()
         Me.BtnClose = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
+        Me.Bar2 = New DevExpress.XtraBars.Bar()
+        Me.BtnClearAllAutoMenu = New DevExpress.XtraBars.BarButtonItem()
+        Me.Bar4 = New DevExpress.XtraBars.Bar()
+        Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem()
+        Me.CboGroup = New DevExpress.XtraBars.BarEditItem()
+        Me.RepositoryItemLookUpEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.BtnManageGroup = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.ImageCollection1 = New DevExpress.Utils.ImageCollection(Me.components)
-        Me.Bar2 = New DevExpress.XtraBars.Bar()
-        Me.BtnClearAllAutoMenu = New DevExpress.XtraBars.BarButtonItem()
+        Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
+        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.BtnExportExcel = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.GridMenu, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,7 +68,10 @@ Partial Class frmMenusSetting
         Me.PanelControl1.SuspendLayout()
         CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -202,15 +213,16 @@ Partial Class frmMenusSetting
         '
         'BarManager1
         '
-        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Bar1, Me.Bar3, Me.Bar2})
+        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Bar1, Me.Bar3, Me.Bar2, Me.Bar4})
         Me.BarManager1.DockControls.Add(Me.barDockControlTop)
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
         Me.BarManager1.Images = Me.ImageCollection1
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BtnAdd, Me.BtnEdit, Me.BtnDelete, Me.BtnClose, Me.BtnClearAllAutoMenu})
-        Me.BarManager1.MaxItemId = 5
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BtnAdd, Me.BtnEdit, Me.BtnDelete, Me.BtnClose, Me.BtnClearAllAutoMenu, Me.BarStaticItem1, Me.CboGroup, Me.BtnManageGroup, Me.BtnExportExcel})
+        Me.BarManager1.MaxItemId = 12
+        Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemComboBox1, Me.RepositoryItemTextEdit1, Me.RepositoryItemLookUpEdit1})
         Me.BarManager1.StatusBar = Me.Bar3
         '
         'Bar1
@@ -262,6 +274,62 @@ Partial Class frmMenusSetting
         Me.Bar3.OptionsBar.UseWholeRow = True
         Me.Bar3.Text = "Status bar"
         '
+        'Bar2
+        '
+        Me.Bar2.BarName = "Menu"
+        Me.Bar2.DockCol = 1
+        Me.Bar2.DockRow = 0
+        Me.Bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
+        Me.Bar2.FloatLocation = New System.Drawing.Point(477, 123)
+        Me.Bar2.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BtnClearAllAutoMenu, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BtnExportExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar2.Offset = 217
+        Me.Bar2.OptionsBar.AllowRename = True
+        Me.Bar2.Text = "Menu"
+        '
+        'BtnClearAllAutoMenu
+        '
+        Me.BtnClearAllAutoMenu.Caption = "ยกเลิกรายการเมนูอัตโนมัติ"
+        Me.BtnClearAllAutoMenu.Id = 4
+        Me.BtnClearAllAutoMenu.ImageIndex = 5
+        Me.BtnClearAllAutoMenu.Name = "BtnClearAllAutoMenu"
+        '
+        'Bar4
+        '
+        Me.Bar4.BarName = "Custom 5"
+        Me.Bar4.DockCol = 2
+        Me.Bar4.DockRow = 0
+        Me.Bar4.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
+        Me.Bar4.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarStaticItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.CboGroup), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnManageGroup)})
+        Me.Bar4.Offset = 441
+        Me.Bar4.Text = "Custom 5"
+        '
+        'BarStaticItem1
+        '
+        Me.BarStaticItem1.Caption = "กลุ่ม"
+        Me.BarStaticItem1.Id = 6
+        Me.BarStaticItem1.Name = "BarStaticItem1"
+        Me.BarStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'CboGroup
+        '
+        Me.CboGroup.Edit = Me.RepositoryItemLookUpEdit1
+        Me.CboGroup.Id = 9
+        Me.CboGroup.Name = "CboGroup"
+        Me.CboGroup.Width = 112
+        '
+        'RepositoryItemLookUpEdit1
+        '
+        Me.RepositoryItemLookUpEdit1.AutoHeight = False
+        Me.RepositoryItemLookUpEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemLookUpEdit1.Name = "RepositoryItemLookUpEdit1"
+        Me.RepositoryItemLookUpEdit1.NullText = "ทั้งหมด"
+        '
+        'BtnManageGroup
+        '
+        Me.BtnManageGroup.Caption = "จัดการกลุ่ม"
+        Me.BtnManageGroup.Id = 10
+        Me.BtnManageGroup.Name = "BtnManageGroup"
+        '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
@@ -299,25 +367,25 @@ Partial Class frmMenusSetting
         Me.ImageCollection1.Images.SetKeyName(3, "pencil.png")
         Me.ImageCollection1.Images.SetKeyName(4, "delete.png")
         Me.ImageCollection1.Images.SetKeyName(5, "garbage_empty.png")
+        Me.ImageCollection1.Images.SetKeyName(6, "Excel.jpg")
         '
-        'Bar2
+        'RepositoryItemComboBox1
         '
-        Me.Bar2.BarName = "Menu"
-        Me.Bar2.DockCol = 1
-        Me.Bar2.DockRow = 0
-        Me.Bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar2.FloatLocation = New System.Drawing.Point(477, 123)
-        Me.Bar2.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BtnClearAllAutoMenu, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
-        Me.Bar2.Offset = 217
-        Me.Bar2.OptionsBar.AllowRename = True
-        Me.Bar2.Text = "Menu"
+        Me.RepositoryItemComboBox1.AutoHeight = False
+        Me.RepositoryItemComboBox1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemComboBox1.Name = "RepositoryItemComboBox1"
         '
-        'BtnClearAllAutoMenu
+        'RepositoryItemTextEdit1
         '
-        Me.BtnClearAllAutoMenu.Caption = "ยกเลิกรายการเมนูอัตโนมัติ"
-        Me.BtnClearAllAutoMenu.Id = 4
-        Me.BtnClearAllAutoMenu.ImageIndex = 5
-        Me.BtnClearAllAutoMenu.Name = "BtnClearAllAutoMenu"
+        Me.RepositoryItemTextEdit1.AutoHeight = False
+        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
+        '
+        'BtnExportExcel
+        '
+        Me.BtnExportExcel.Caption = "ส่งข้อมูล Menu ออก Excel"
+        Me.BtnExportExcel.Id = 11
+        Me.BtnExportExcel.ImageIndex = 6
+        Me.BtnExportExcel.Name = "BtnExportExcel"
         '
         'frmMenusSetting
         '
@@ -340,7 +408,10 @@ Partial Class frmMenusSetting
         Me.PanelControl1.PerformLayout()
         CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImageCollection1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -375,4 +446,12 @@ Partial Class frmMenusSetting
     Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents Bar2 As DevExpress.XtraBars.Bar
     Friend WithEvents BtnClearAllAutoMenu As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents Bar4 As DevExpress.XtraBars.Bar
+    Friend WithEvents BarStaticItem1 As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents RepositoryItemComboBox1 As DevExpress.XtraEditors.Repository.RepositoryItemComboBox
+    Friend WithEvents CboGroup As DevExpress.XtraBars.BarEditItem
+    Friend WithEvents RepositoryItemLookUpEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
+    Friend WithEvents RepositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents BtnManageGroup As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnExportExcel As DevExpress.XtraBars.BarButtonItem
 End Class
